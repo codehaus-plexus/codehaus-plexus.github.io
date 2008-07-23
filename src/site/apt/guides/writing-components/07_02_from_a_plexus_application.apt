@@ -1,0 +1,260 @@
+ -----
+Using a Plexus Component from a Plexus application.
+ -----
+Rahul Thakur
+ ----
+08th June 2006 
+ ------
+
+ <<<The contents of this document are a work in progress>>>
+
+Plexus Website Monitor Application
+
+ This section will show how to use a Plexus component in a Plexus application.
+
+* Setting up a Plexus Application project
+
+** Creating a Plexus application project using an archetype
+
+  Maven Archetypes are discussed in detail {{{http://maven.apache.org/guides/mini/guide-creating-archetypes.html}here}}.
+
+  [[1]] From the command prompt, change directory to the location where you 
+  want to setup the Plexus application project.
+
+  [[1]] Run the following command to set up a skeleton Plexus Application project.  
+
+
++------------------------------------------+
+
+ mvn archetype:create -DarchetypeGroupId=org.codehaus.plexus -DarchetypeArtifactId=plexus-archetype-application \
+     -DarchetypeVersion=1.0-alpha-1-SNAPSHOT -DgroupId=org.codehaus.plexus -DartifactId=plexus-website-monitor-application \
+     -DremoteRepositories=http://snapshots.repository.codehaus.org/
+
++------------------------------------------+
+
+ The <<<maven-archetype-mojo>>> sets up a skeleton Maven plugin project '<<<plexus-website-monitor-application>>>' for 
+ us with reasonable defaults.
+
+ 
+** Updating pom.xml dependencies
+
+  [[1]] Locate pom.xml under the '<<<plexus-website-monitor-application>>>' folder. 
+
+  [[1]] Edit it and add a <<<dependency>>> to the 
+  plexus-website-monitor-component that we have developed in earlier chapters.
+
+  [[1]] We also configure a 
+
+    The pom.xml should look like this now:
+
++------------------------------------------+
+
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>plexus-examples</artifactId>
+    <groupId>org.codehaus.plexus.examples</groupId>
+    <version>1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.plexus</groupId>
+  <artifactId>plexus-website-monitor-application</artifactId>
+  <packaging>plexus-application</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-appserver-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <configurationDirectory>src/conf</configurationDirectory>
+          <applicationName>foo</applicationName>
+          <applicationConfiguration>src/conf/application.xml</applicationConfiguration>
+          <configurationProperties>src/plexus.properties</configurationProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-website-monitor-component</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>    
+  </dependencies>
+</project>
+
++------------------------------------------+
+
+
+** Setting up an IDE project
+
+  Before we proceed further let us set up an Eclipse project for our Plexus application project. To do so currently, and as a workaround we comment out the generated <<<<packaging>>>> element in the <<<pom.xml>>> and add a <<<<packaging>>>><<<jar>>><<<</packaging>>>>. To generate an Eclipse project: 
+
+  [[1]] Open up a command prompt/terminal, and
+
+  [[1]] run the following command 
+
++-------------------------------------------+  
+
+  mvn eclipse:clean eclipse:eclipse 
+
++-------------------------------------------+
+
+ Import the generated project under an Eclipse Project. 
+
+
+
+** Adding an Application Entry Class 
+
+ For any standalone Java application, we need a Class that defines a <<<main>>> method; the case of Plexus application is no different. We add a Application main class for our application (don't worry about the implementation details yet). 
+
+
+ We create a folder for Java sources <<<src/main/java>>> and add a sensible package for the main class. For this trail, we have created the package <<<org.codehaus.plexus.site.monitor>>> and create a main class <<<Main.java>>> under it. 
+
+ The generated source with a <<<System.out.println()>>> looks like below: 
+
++-------------------------------------------+
+
+public class Main
+{
+
+    public static void main( String[] args )
+    {
+        System.out.println ("Hello Plexus application!");
+
+    }
+
+}
+
++-------------------------------------------+
+
+  Having imported the project and added a main class, we now revert the <<<packaging>>> back to value <<<plexus-application>>>.
+
+
+** Setting up packaging configuration
+ 
+ Next we set up an application assembler plugin for our Plexus application project. To do this, 
+ 
+  [[1]] Locate the pom.xml for the plexus application project 
+
+  [[1]] update the <<<<build>>>> element configuration such that it is reflected as below
+
++--------------------------------------------+
+
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-appserver-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <configurationDirectory>src/conf</configurationDirectory>
+          <applicationName>foo</applicationName>
+          <applicationConfiguration>src/conf/application.xml</applicationConfiguration>
+          <configurationProperties>src/plexus.properties</configurationProperties>
+        </configuration>
+      </plugin>
+      <!-- Application Assembler plugin config -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>appassembler-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>assemble</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <assembleDirectory>target/site-monitor-app</assembleDirectory>
+          <includeConfigurationDirectoryInClasspath>
+            true
+          </includeConfigurationDirectoryInClasspath>
+          <programs>
+            <program>
+              <name>monitor</name>
+              <mainClass>
+                org.codehaus.plexus.site.monitor.Main
+              </mainClass>
+            </program>
+          </programs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+...
+
++--------------------------------------------+
+
+ Note how the assembly directory is specified in the <<<appassembler>>> plugin configuration - this is where our Plexus application will be packaged up when the Maven plugin is invoked. 
+
+
+ The discussion on Plugin configuration is beyond the scope of this tutorial, you can refer to book 'Better builds with Maven' or other resources available at:
+
+  [[1]] {{{http://maven.apache.org/articles.html}Maven Books and Articles}}.
+
+
+** Adding <<<<pluginRepositories>>>> for Appassembler plugin download 
+
+ As of this writing the Appassembler pluging is available from the Codehaus snapshots repository. To have Maven download the latest version (snapshot), we add the <<<pluginRepositories>>> information to the <<<pom.xml>>>
+
+
++---------------------------------------------+
+<project>
+....
+....
+  <pluginRepositories>
+    <pluginRepository>
+      <id>codehaus-mojo-snapshots</id>
+      <name>Codehaus Snapshots</name>
+      <url>http://snapshots.repository.codehaus.org/</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>
++---------------------------------------------+
+ 
+
+** Testing Application configuration
+
+ Before we go any further, let us take our Plexus site monitor application for a spin. To do this:
+
+  [[1]]   Open a command prompt/terminal
+
+  [[1]]   Change directory to the Plexus application project's directory
+
+  [[1]]   Run the following Maven command 
+
++--------------------------------------------+
+mvn clean package 
++--------------------------------------------+
+
+ If you look under <<<target>>> directory you will see that the Site Monitor application is assembled under <<<site-monitor-app>>> directory. The contents under that directory consist of executable scripts (Shell and batch script by default). 
+
+ Lets try running the application and see what happens. To do this: 
+
+ [[1]]    At the command prompt, change directory to <<<${project-home}/target/site-monitor-app/bin>>>
+
+ [[1]]    Run the script appropriate for your operating system. 
+
+ You should an output similar to as below on the console:
+
++--------------------------------------------+
+E:\plexus\plexus-examples\plexus-website-monitor-application\target\site-monitor-app\bin>monitor.bat
+Hello Plexus application!
++--------------------------------------------+
+
+
+ At this point we are ready to play with Plexus Embedder and hook our Website monitor component into our Plexus application.
+
+ {{{07_02_plexus_embedder_and_component_integration.html}Next: Plexus Embedder Intro & Site Monitor component integration into the application }} 
+
+
