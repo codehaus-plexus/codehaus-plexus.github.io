@@ -50,22 +50,26 @@
     </menu>
 
     <menu name="Plexus Projects" inherit="bottom">
-      <item name="Modello" href="/modello/" />
-      <item name="Plexus Classworlds" href="/plexus-classworlds/" />
-      <item name="Plexus Components"  href="/plexus-components/" >
-        <item name="Plexus Archiver" href="/plexus-archiver/"/>
-        <item name="Plexus CLI" href="/plexus-cli/"/>
-        <item name="Plexus Compiler" href="/plexus-compiler/"/>
-        <item name="Plexus Digest" href="/plexus-digest/"/>
-        <item name="Plexus i18n" href="/plexus-i18n/"/>
+      <item name="Modello"                href="/modello/" />
+      <item name="Plexus Classworlds"     href="/plexus-classworlds/" />
+      <item name="Plexus Components">
+        <item name="Plexus Archiver"      href="/plexus-archiver/"/>
+        <item name="Plexus CLI"           href="/plexus-cli/"/>
+        <item name="Plexus Compiler"      href="/plexus-compiler/"/>
+        <item name="Plexus Digest"        href="/plexus-digest/"/>
+        <item name="Plexus i18n"          href="/plexus-i18n/"/>
         <item name="Plexus Interactivity" href="/plexus-interactivity/"/>
         <item name="Plexus Interpolation" href="/plexus-interpolation/"/>
-        <item name="Plexus IO" href="/plexus-io/"/>
-        <item name="Plexus Resources" href="/plexus-resources/"/>
-        <item name="Plexus Swizzle" href="/plexus-swizzle/"/>
-        <item name="Plexus Velocity" href="/plexus-velocity/"/>
+        <item name="Plexus IO"            href="/plexus-io/"/>
+        <item name="Plexus Resources"     href="/plexus-resources/"/>
+        <item name="Plexus Swizzle"       href="/plexus-swizzle/"/>
+        <item name="Plexus Velocity"      href="/plexus-velocity/"/>
       </item>
-      <item name="Plexus Utils"       href="/plexus-utils/" />
+      <item name="Plexus Parent POMs">
+        <item name="Plexus"               href="/plexus/"/>
+        <item name="Plexus Components"    href="/plexus-components/"/>
+      </item>
+      <item name="Plexus Utils"           href="/plexus-utils/" />
     </menu>
 
     <menu name="Old IoC Documentation">

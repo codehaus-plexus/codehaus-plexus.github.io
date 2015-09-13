@@ -1,5 +1,5 @@
  -----
- Plexus
+ Plexus Overview
  -----
  Brett Porter
  -----
@@ -14,7 +14,7 @@ Overview
 
   * {{{./plexus-classworlds/}Plexus Classworlds}},
 
-  * Plexus Components: 
+  * Plexus Components:
 
     * {{{./plexus-archiver/}plexus-archiver}}: components to manipulate archives,
 
@@ -37,6 +37,14 @@ Overview
     * {{{./plexus-swizzle/}plexus-swizzle}}: a component adaptated from David Blevin's Swizzle project to generate reports from an issue tracking system (JIRA),
 
     * {{{./plexus-velocity/}plexus-velocity}}: component to render velocity templates.
+
+    []
+
+  * Plexus Parent POMs:
+
+    * {{{./plexus/}plexus}}
+
+    * {{{./plexus-components/}plexus-components}}
 
     []
 
