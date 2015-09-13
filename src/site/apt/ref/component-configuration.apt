@@ -11,13 +11,13 @@ Component Configuration
 
  For each component plexus creates a component profile.   The profiles keeps track of the following things for each component:
 
- * {{{Component Factory}}}
+ * {{{#Component_Factory}}}
 
- * {{{Lifecycle Handler}}}
+ * {{{#Lifecycle_Handler}}}
 
- * {{{Component Composer}}}
+ * {{{#Component_Composer}}}
 
- * {{{Instantiation Strategy}}}
+ * {{{#Instantiation_Strategy}}}
 
  * The configuration for the component
 
