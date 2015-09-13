@@ -42,7 +42,7 @@ Overview
 
   * Plexus Parent POMs:
 
-    * {{{./plexus/}plexus}}
+    * {{{./plexus-pom/}plexus}}
 
     * {{{./plexus-components/}plexus-components}}
 
