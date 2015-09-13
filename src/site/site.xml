@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<project xmlns="http://maven.apache.org/DECORATION/1.3.0"
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd"
   name="Plexus">
   <version position="none" />
 
@@ -52,25 +52,31 @@
     <menu name="Plexus Projects" inherit="bottom">
       <item name="Modello" href="/modello/" />
       <item name="Plexus Classworlds" href="/plexus-classworlds/" />
-      <item name="Plexus Container"   href="/plexus-containers/" />
-      <item name="Plexus Components"  href="/plexus-components/" />
+      <item name="Plexus Components"  href="/plexus-components/" >
+        <item name="Plexus Archiver" href="/plexus-archiver/"/>
+        <item name="Plexus CLI" href="/plexus-cli/"/>
+        <item name="Plexus Compiler" href="/plexus-compiler/"/>
+        <item name="Plexus Digest" href="/plexus-digest/"/>
+        <item name="Plexus i18n" href="/plexus-i18n/"/>
+        <item name="Plexus Interactivity" href="/plexus-interactivity/"/>
+        <item name="Plexus Interpolation" href="/plexus-interpolation/"/>
+        <item name="Plexus IO" href="/plexus-io/"/>
+        <item name="Plexus Resources" href="/plexus-resources/"/>
+        <item name="Plexus Swizzle" href="/plexus-swizzle/"/>
+        <item name="Plexus Velocity" href="/plexus-velocity/"/>
+      </item>
       <item name="Plexus Utils"       href="/plexus-utils/" />
     </menu>
 
-    <menu name="Downloads">
-      <!-- .tgz files for latest release and snapshots -->
-      <item name="Sources" href="source-repository.html" />
-      <item name="Binaries" href="/download-binaries.html" />
-    </menu>
-
-    <menu name="Books">
+    <menu name="Old IoC Documentation">
+    <item name="Books" collapse="true">
       <item name="Writing Components" href="/writing-components-trail/index.html" />
       <!-- this is not really ready for publishing yet !
       <item name="Developer Guide" href="/Plexus_developer_reference" />
 -->
-    </menu>
+    </item>
 
-    <menu name="Guides">
+    <item name="Guides" collapse="true">
       <!-- 5 minute tutorial -->
       <item name="Quick Start" href="/guides/quick-start/getting-started.html" />
       <!-- Guide to writing components, touches upon basic plexus concepts to get started -->
@@ -80,9 +86,9 @@
 
       <!-- Detailed Plexus manual -->
       <item name="Developer Guide" href="/guides/developer-guide/index.html" />
-    </menu>
+    </item>
 
-    <menu name="Reference">
+    <item name="Reference" collapse="true">
       <!-- A background on Component oriented programming -->
       <item name="Why Use Components?" href="/ref/why-use-components.html" />
       <!-- Discuss elements for plexus.xml and components.xml and differences -->
@@ -92,6 +98,7 @@
       <item name="Technical Articles" href="/ref/technical-articles.html" />
       <item name="Available Components" href="/ref/available-components.html" />
       <item name="FAQs" href="/faq.html" />
+    </item>
     </menu>
 
     <menu name="Community">

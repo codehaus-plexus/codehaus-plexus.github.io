@@ -18,7 +18,7 @@ Overview
 
     * {{{./plexus-archiver/}plexus-archiver}}: components to manipulate archives,
 
-    * {{{./plexus-cli}plexus-cli}}: components to easily create CLIs,
+    * {{{./plexus-cli/}plexus-cli}}: components to easily create CLIs,
 
     * {{{./plexus-compiler/}plexus-compiler}}: components to manipulate compilers,
 
@@ -49,11 +49,11 @@ Plexus History
 
 ============================
 
-** IMPORTANT NOTICE
+* IMPORTANT NOTICE
 
-  The Plexus project was previously focused on IoC container: it is now replaced with {{{https://www.eclipse.org/sisu/}Eclipse Sisu}},
-  rewritten as an extension on Google Guice. We kept whole content on IoC for reference, even if the IoC part is now 
-  obsolete.
+  The Plexus project was previously focused on {{{/plexus-containers/}IoC Plexus Container}}:
+  it is now replaced with {{{https://www.eclipse.org/sisu/}Eclipse Sisu}}, rewritten as an extension on Google Guice.
+  We kept whole content on IoC for reference, even if the IoC part is now obsolete.
 
 ============================
 
