@@ -20,7 +20,7 @@
   <scm>
     <connection>scm:git:git@github.com:codehaus-plexus/codehaus-plexus.github.io.git</connection>
     <developerConnection>scm:git:git@github.com:codehaus-plexus/codehaus-plexus.github.io.git</developerConnection>
-    <url>http://github.com/codehaus-plexus/codehaus-plexus.github.io/tree/source</url>
+    <url>http://github.com/codehaus-plexus/codehaus-plexus.github.io/tree/${project.scm.tag}/</url>
     <tag>source</tag>
   </scm>
   <issueManagement>
