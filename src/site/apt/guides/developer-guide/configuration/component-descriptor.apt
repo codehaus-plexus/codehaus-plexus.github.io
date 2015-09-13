@@ -323,7 +323,7 @@ public class SomeComponentImpl
 ...
 +------------------------------------------+
 
- You may read more about it {{{plexus-auto-configuration.html}here}}.
+ You may read more about it {{{./plexus-auto-configuration.html}here}}.
 
  And that's all you need to know about component configuration to
  get you started!
@@ -340,4 +340,4 @@ public class SomeComponentImpl
 ~~ TODO The link in the following paragraph is broken
  
  If you want to learn more about more advanced options you can read
- {{{component-descriptor-specification.xml}Component Descriptor}}.
+ {{{./component-descriptor-specification.xml}Component Descriptor}}.

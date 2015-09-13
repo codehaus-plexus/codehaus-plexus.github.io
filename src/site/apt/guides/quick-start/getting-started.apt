@@ -111,7 +111,7 @@ public class ParmesanCheese
   differentiates implementations of a given component, and is used when later referencing the component.
 
   <<Note:>> It is not necessary to create this descriptor, as the
-  {{{component-descriptor-creator.html} Component Descriptor Creator}} can do it for you based on the
+  {{{./component-descriptor-creator.html} Component Descriptor Creator}} can do it for you based on the
   Java class definition and some additional Javadoc annotations.
 
 * Executing the Plexus Application
@@ -139,7 +139,7 @@ public class App
 ----
 
   That's all there is to it: create the container, and start it. Defaults and the current classloader will be used,
-  however if you need a more advanced embedder container configuration, see {{{embedder.html} Using the
+  however if you need a more advanced embedder container configuration, see {{{./embedder.html} Using the
   embedder}}.
 
 ** Retrieving the Component

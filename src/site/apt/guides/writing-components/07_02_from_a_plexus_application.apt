@@ -255,6 +255,6 @@ Hello Plexus application!
 
  At this point we are ready to play with Plexus Embedder and hook our Website monitor component into our Plexus application.
 
- {{{07_02_plexus_embedder_and_component_integration.html}Next: Plexus Embedder Intro & Site Monitor component integration into the application }} 
+ {{{./07_02_plexus_embedder_and_component_integration.html}Next: Plexus Embedder Intro & Site Monitor component integration into the application }} 
 
 

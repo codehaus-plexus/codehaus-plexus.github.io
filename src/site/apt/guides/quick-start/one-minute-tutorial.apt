@@ -30,7 +30,7 @@ public class DefaultCheeseComponent
 +---+
 
  Notice that we implement <<<Intializable>>>. This is part of the
- {{{plexus-lifecycle.html}Component Lifecycle}}. When plexus automatically
+ {{{./plexus-lifecycle.html}Component Lifecycle}}. When plexus automatically
  instantiates your component it will automatically <<<intiailize()>>> it as
  well.
 

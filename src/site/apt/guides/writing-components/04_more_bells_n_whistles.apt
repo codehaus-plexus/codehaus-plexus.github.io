@@ -48,6 +48,6 @@ public class DefaultWebsiteMonitor extends AbstractLogEnabled implements Website
 
 Plugging in our custom Logging implementation
 
- An example of plugging in a custom logging implementation is demonstrated {{{05_01_custom_logging_implementation.html} here}}.
+ An example of plugging in a custom logging implementation is demonstrated {{{./05_01_custom_logging_implementation.html} here}}.
 
 

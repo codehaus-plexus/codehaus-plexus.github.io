@@ -27,7 +27,7 @@ Documentation Trails
   [[1]] To learn the basics about Plexus components and the Plexus container, try the
   {{{../quick-start/getting-started.html} Five Minute Tutorial}}.
 
-  [[2]] To learn more about writing components, take the {{{writing-components/index.html} Component Tutorial}}.
+  [[2]] To learn more about writing components, take the {{{./writing-components/index.html} Component Tutorial}}.
 
   ~~TODO: finish
 
@@ -37,7 +37,7 @@ Documentation Trails
 
   [[1]] To get started using the Plexus container, try the {{{../quick-start/getting-started.html} Five Minute Tutorial}}.
   
-  [[1]] To learn how to use Plexus for web application development, follow the {{{plexus-web-applications/index.html}Plexus in Web applications}} trail.
+  [[1]] To learn how to use Plexus for web application development, follow the {{{./plexus-web-applications/index.html}Plexus in Web applications}} trail.
 
   ~~TODO: finish
 

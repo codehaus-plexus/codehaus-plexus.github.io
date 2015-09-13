@@ -49,7 +49,7 @@ Introduction
   For example, the chain of command pattern is very useful in defining a series of actions, and can be achieved by
   declaring a requirement on a list of component instances.
 ~~ This example is demonstrated in the
-~~  {{{component-requirements.html} Component Requirements Tutorial}}.
+~~  {{{./component-requirements.html} Component Requirements Tutorial}}.
 
   <<Components are easier to construct and configure>>
 
@@ -64,7 +64,7 @@ Introduction
 
   In Plexus, configuration and construction is not limited to setting values on primitive fields either.
   Complex objects can be configured from XML fragments, as is discussed in the
-  {{{component-configuration.html} Component Configuration Tutorial}}. Components can also have <other components>
+  {{{./component-configuration.html} Component Configuration Tutorial}}. Components can also have <other components>
   configured and injected based on declared <requirements> making construction very simple. These requirements can
   of course be altered by target applications that may wish to substitute different implementations.
 
@@ -86,7 +86,7 @@ Introduction
   set up and clean up, and also to easily apply some design patterns to a component without having to recode
   the component state handling.
 
-  Component lifecycles in Plexus are discussed in the {{{components.html} Components Tutorial}}.
+  Component lifecycles in Plexus are discussed in the {{{./components.html} Components Tutorial}}.
 ~~ as well as the
 ~~  {{{../documentation/component-lifecycle.html} Component Lifecycle}} documentation.
 
@@ -118,7 +118,7 @@ Introduction
   implementations. This can facilitate advanced application architectures without code modifications.
 
   An example of this can be seen in Apache Geronimo's GBuild, which is built on
-  {{{http://maven.apache.org/continuum/} Apache Continuum}}, a Plexus application. By replacing some components with
+  {{{http://continuum.apache.org/} Apache Continuum}}, a Plexus application. By replacing some components with
   identical functionality that works with ActiveMQ, a distributed countinuous integration server was built.
 
   Additionally, the container can provide features that can be applied to all components consistently without code

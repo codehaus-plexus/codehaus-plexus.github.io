@@ -23,7 +23,7 @@ Configuration files
  !plexus-configuration-files.gif!
  
  
- All components which can be used by plexus must have a {{{component-descriptor.html}Component Descriptor}}.
+ All components which can be used by plexus must have a {{{./component-descriptor.html}Component Descriptor}}.
 
  
  Component Descriptors can be declared in two places:  <<plexus.xml>> and in <<components.xml>> files which are kept in jars (META-INF/plexus/components.xml).

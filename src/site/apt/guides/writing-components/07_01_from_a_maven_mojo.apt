@@ -90,4 +90,4 @@ Website Monitor Plugin
     The website monitor plugin should now be set up as a project under Eclipse.
 
 
- {{{07_01_implementing_monitor_mojo.html}Next: Implementing Monitor Mojo}}
+ {{{./07_01_implementing_monitor_mojo.html}Next: Implementing Monitor Mojo}}

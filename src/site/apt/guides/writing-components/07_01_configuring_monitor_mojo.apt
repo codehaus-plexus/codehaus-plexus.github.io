@@ -86,4 +86,4 @@ Adding Configuration for the Monitor Mojo
   We will come back to configuring the MonitorMojo but before we do that we'll
   look at setting up unit tests for it.
 
- {{{07_01_setting_up_mojo_unit_tests.html}Next: Setting up Mojo unit tests}}
+ {{{./07_01_setting_up_mojo_unit_tests.html}Next: Setting up Mojo unit tests}}
