@@ -6,20 +6,6 @@
   name="Plexus">
   <version position="none" />
 
-  <bannerLeft>
-    <name>Plexus</name>
-    <href>http://codehaus-plexus.github.io/</href>
-    <src>/images/plexus-logo-trans.png</src>
-  </bannerLeft>
-
-  <publishDate format="yyyy-MM-dd" position="right" />
-
-  <skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.4</version>
-  </skin>
-
   <custom>
     <fluidoSkin>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
