@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
+<project xmlns="http://maven.apache.org/DECORATION/1.7.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
   name="Plexus">
   <version position="none" />
 
@@ -18,9 +18,9 @@
 
   <body>
 
-    <head>
+    <head><![CDATA[
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />]]>
     </head>
 
     <links>
