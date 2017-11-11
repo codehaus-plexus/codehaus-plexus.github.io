@@ -32,6 +32,8 @@ Overview
 
     * {{{./plexus-io/}plexus-io}}: components designed for use in I/O operations,
 
+    * {{{./plexus-languages/}plexus-languages}}: ,
+
     * {{{./plexus-resources/}plexus-resources}}: a component to transparently retrieve resources from the filesystem, classpath or internet,
 
     * {{{./plexus-swizzle/}plexus-swizzle}}: a component adaptated from David Blevin's Swizzle project to generate reports from an issue tracking system (JIRA),
