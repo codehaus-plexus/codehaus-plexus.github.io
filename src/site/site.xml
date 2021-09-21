@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 
-<project xmlns="http://maven.apache.org/DECORATION/1.7.0"
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd"
   name="Plexus">
   <version position="none" />
+
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.9</version>
+  </skin>
 
   <custom>
     <fluidoSkin>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
-      <googlePlusOne />
       <googleSearch>
         <sitesearch>http://codehaus-plexus.github.io/</sitesearch>
       </googleSearch>
@@ -69,8 +74,7 @@
     </menu>
 
     <menu name="Community">
-      <item name="Mailing Lists" href="mail-lists.html" />
-      <item name="IRC" href="/irc.html" />
+      <item name="Mailing Lists" href="https://groups.google.com/g/mojohaus-dev" />
       <item name="Get Involved" href="/get-involved.html" />
     </menu>
   </body>

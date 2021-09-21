@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.codehaus.plexus</groupId>
     <artifactId>plexus</artifactId>
-    <version>5.1</version>
+    <version>8</version>
   </parent>
 
   <artifactId>plexus-site</artifactId>
@@ -89,9 +89,9 @@
           <reportSet><!-- execute only reports necessary for main site, in a dedicated reportSet -->
             <id>site-mpir</id>
             <reports>
-              <report>project-team</report>
-              <report>issue-tracking</report>
-              <report>license</report>
+              <report>team</report>
+              <report>issue-management</report>
+              <report>licenses</report>
               <report>scm</report>
             </reports>
           </reportSet>
