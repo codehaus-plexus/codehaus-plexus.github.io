@@ -22,12 +22,6 @@
   </custom>
 
   <body>
-
-    <head><![CDATA[
-      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />]]>
-    </head>
-
     <links>
       <item name="Plexus" href="http://codehaus-plexus.github.io/" />
     </links>
@@ -41,14 +35,14 @@
     </menu>
 
     <menu name="Old IoC Documentation">
-    <item name="Books" collapse="true">
+    <item name="Books">
       <item name="Writing Components" href="/writing-components-trail/index.html" />
       <!-- this is not really ready for publishing yet !
       <item name="Developer Guide" href="/Plexus_developer_reference" />
 -->
     </item>
 
-    <item name="Guides" collapse="true">
+    <item name="Guides">
       <!-- 5 minute tutorial -->
       <item name="Quick Start" href="/guides/quick-start/getting-started.html" />
       <!-- Guide to writing components, touches upon basic plexus concepts to get started -->
@@ -60,7 +54,7 @@
       <item name="Developer Guide" href="/guides/developer-guide/index.html" />
     </item>
 
-    <item name="Reference" collapse="true">
+    <item name="Reference">
       <!-- A background on Component oriented programming -->
       <item name="Why Use Components?" href="/ref/why-use-components.html" />
       <!-- Discuss elements for plexus.xml and components.xml and differences -->

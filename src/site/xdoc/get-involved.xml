@@ -9,34 +9,19 @@
       <subsection name="Interested in being a part of Plexus development team.... that's great!">
         <p>You can contribute: 
         <ul>
-            <li>by asking questions and sharing ideas on Plexus <a href="mail-lists.html">mailing lists</a>  and on <a href="irc.html">IRC</a>
+            <li>by asking questions and sharing ideas on Plexus mailing lists
             </li>
             <li>by picking up issues of interest and submitting patches with Plexus team.</li>
           </ul>
         </p>
       </subsection>
       <subsection name="Reporting Issues">
-        <p>Before reporting please chose the correct project :
-          <ul>
-            <li>Plexus Container issue  <a href="http://jira.codehaus.org/browse/PLX">Plexus  (PLX)</a>
-            </li>
-            <li>Plexus Components issue  <a href="http://jira.codehaus.org/browse/PLXCOMP">Plexus Components  (PLXCOMP)</a>
-            </li>
-            <li>Plexus Redback issue  <a href="http://jira.codehaus.org/browse/PLXREDBACK">Plexus Redback  (PLXREDBACK)</a>
-            </li>
-            <li>Plexus Redback issue  <a href="http://jira.codehaus.org/browse/PLXUTILS">Plexus Utils  (PLXUTILS)</a>
-            </li>
-          </ul>
-        </p>
+        <p>Before reporting please chose the correct project on Github</p>
       </subsection>
       <subsection name="Creating and submitting a patch">
-        <p>First you need to create an issue in JIRA in the correct project. (ensure you have made a svn up before).</p>
+        <p>First you need to create an issue on Github in the correct project.</p>
         <br />
         <p>If your patch is a improvement or a new feature : add a junit.</p>
-        <source>
-svn diff > projectName-issueId.patch (where projectName in PLX, PLXCOMP, PLXREDBACK, PLXUTILS)      
-        </source>
-        <p>Attached the patch to the jira issue.</p>
       </subsection>
       <subsection name="License">
         <p>All sources must contain the following license header :
