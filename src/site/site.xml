@@ -6,17 +6,26 @@
   name="Plexus">
   <version position="none" />
 
-  <skin>
+  <skin><!-- TODO remove when upgrading parent POM to 10 -->
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>1.9</version>
+    <version>1.11.0</version>
   </skin>
 
   <custom>
+    <matomo><!-- TODO remove when upgrading parent POM to 10 -->
+      <siteId>18</siteId>
+      <url>https://analytics.apache.org/</url>
+      <options>
+        <disableCookies/>
+        <trackPageView/>
+        <enableLinkTracking/>
+      </options>
+    </matomo>
     <fluidoSkin>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
       <googleSearch>
-        <sitesearch>http://codehaus-plexus.github.io/</sitesearch>
+        <sitesearch>https://codehaus-plexus.github.io/</sitesearch>
       </googleSearch>
     </fluidoSkin>
   </custom>
