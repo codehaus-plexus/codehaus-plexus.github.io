@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.codehaus.plexus</groupId>
     <artifactId>plexus</artifactId>
-    <version>8</version>
+    <version>9</version>
   </parent>
 
   <artifactId>plexus-site</artifactId>
@@ -13,16 +13,16 @@
   <packaging>pom</packaging>
 
   <name>Plexus Site</name>
-  <url>http://codehaus-plexus.github.io/</url>
+  <url>https://codehaus-plexus.github.io/</url>
   <organization>
     <name>Codehaus Plexus</name>
-    <url>http://codehaus-plexus.github.io/</url>
+    <url>https://codehaus-plexus.github.io/</url>
   </organization>
 
   <scm>
     <connection>scm:git:git@github.com:codehaus-plexus/codehaus-plexus.github.io.git</connection>
     <developerConnection>scm:git:git@github.com:codehaus-plexus/codehaus-plexus.github.io.git</developerConnection>
-    <url>http://github.com/codehaus-plexus/codehaus-plexus.github.io/tree/${project.scm.tag}/</url>
+    <url>https://github.com/codehaus-plexus/codehaus-plexus.github.io/tree/${project.scm.tag}/</url>
     <tag>source</tag>
   </scm>
   <issueManagement>
