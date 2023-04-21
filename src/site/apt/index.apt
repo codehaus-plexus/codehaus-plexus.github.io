@@ -32,7 +32,7 @@ Overview
 
     * {{{./plexus-io/}plexus-io}}: components designed for use in I/O operations,
 
-    * {{{./plexus-languages/}plexus-languages}}: ,
+    * {{{./plexus-languages/}plexus-languages}}: shared language-oriented features (Java, ...),
 
     * {{{./plexus-resources/}plexus-resources}}: a component to transparently retrieve resources from the filesystem, classpath or internet,
 
@@ -52,7 +52,7 @@ Overview
 
   * {{{./plexus-utils/} Plexus Utils}},
 
-* {{{./plexus-xml/} Plexus XML}},
+  * {{{./plexus-xml/} Plexus XML}}
 
   []
 
