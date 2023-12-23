@@ -17,10 +17,6 @@
             <td>Component to manipulate archives.</td>
           </tr>
           <tr>
-            <td><a href="/plexus-cli">plexus-cli</a></td>
-            <td>Components to easily create CLIs.</td>
-          </tr>
-          <tr>
             <td><a href="/plexus-compiler">plexus-compiler</a></td>
             <td>Components to manipulate compilers.</td>
           </tr>
@@ -59,6 +55,10 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
+          </tr>
+          <tr>
+            <td><a href="/plexus-cli">plexus-cli</a></td>
+            <td>Components to easily create CLIs.</td>
           </tr>
           <tr>
             <td>plexus-spring</td>
