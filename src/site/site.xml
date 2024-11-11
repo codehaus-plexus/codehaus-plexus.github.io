@@ -25,8 +25,9 @@ under the License.
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>2.0.0-M11</version>
+    <version>2.0.0</version>
   </skin>
+
   <custom>
     <fluidoSkin>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
@@ -52,9 +53,6 @@ under the License.
     <menu name="Old IoC Documentation">
     <item name="Books">
       <item name="Writing Components" href="/writing-components-trail/index.html" />
-      <!-- this is not really ready for publishing yet !
-      <item name="Developer Guide" href="/Plexus_developer_reference" />
--->
     </item>
 
     <item name="Guides">
