@@ -71,12 +71,9 @@ under the License.
       <!-- A background on Component oriented programming -->
       <item name="Why Use Components?" href="/ref/why-use-components.html" />
       <!-- Discuss elements for plexus.xml and components.xml and differences -->
-      <item name="Plexus Descriptor" href="/ref/plexus-descriptor.html" />
       <item name="Component Descriptor" href="/guides/developer-guide/configuration/component-descriptor.html" />
       <item name="Component Configuration" href="/ref/component-configuration.html" />
-      <item name="Technical Articles" href="/ref/technical-articles.html" />
       <item name="Available Components" href="/ref/available-components.html" />
-      <item name="FAQs" href="/faq.html" />
     </item>
     </menu>
 

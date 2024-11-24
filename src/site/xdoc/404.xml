@@ -31,10 +31,10 @@ under the License.
     <title>Page Not Found</title>
     <base href="http://codehaus-plexus.github.io/" />
     <!-- need to import styles by hand since the generated html has them relative and before the base tag -->
-    <link rel="stylesheet" href="http://codehaus-plexus.github.io/css/apache-maven-fluido-1.4.min.css" />
+    <link rel="stylesheet" href="http://codehaus-plexus.github.io/css/apache-maven-fluido-2.0.0.min.css" />
     <link rel="stylesheet" href="http://codehaus-plexus.github.io/css/site.css" />
     <link rel="stylesheet" href="http://codehaus-plexus.github.io/css/print.css" media="print" />
-    <script type="text/javascript" src="http://codehaus-plexus.github.io/js/apache-maven-fluido-1.4.min.js" />
+    <script type="text/javascript" src="http://codehaus-plexus.github.io/js/apache-maven-fluido-2.0.0.min.js" />
   </head>
 
   <body>
