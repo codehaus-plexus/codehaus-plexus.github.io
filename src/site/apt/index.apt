@@ -8,13 +8,15 @@
 
 Overview
 
-  Codehaus Plexus is a collection of components used by {{{http://maven.apache.org/} Apache Maven}}:
+  Codehaus Plexus -- or more precisely <<Codehaus Plexus Tools and Components>> now -- is a collection of tools and components used by {{{http://maven.apache.org/} Apache Maven}}:
 
-  * {{{./modello/} Modello}},
+  [[1]] <<tools>>:
 
-  * {{{./plexus-classworlds/}Plexus Classworlds}},
+    * {{{./modello/} Modello}}: tool for code generation from a simple model,
 
-  * Plexus Components:
+    * {{{./plexus-classworlds/}Plexus Classworlds}}: tool for advanced Java ClassLoader management.
+
+  [[2]] <<Plexus components>> (ie. implemented as {{{https://jcp.org/en/jsr/detail?id=330}JSR-330}} compliant components with <Plexus Container (deprecated)>/{{{https://www.eclipse.org/sisu/}Sisu}}):
 
     * {{{./plexus-archiver/}plexus-archiver}}: components to manipulate archives,
 
@@ -38,29 +40,38 @@ Overview
 
     []
 
-  * Plexus Parent POM: {{{./plexus-pom/}plexus}}
+  [[3]] <<Parent POMs>>:
 
-  * {{{./plexus-utils/} Plexus Utils}},
+    * Plexus Parent POM: {{{./plexus-pom/}plexus}},
 
-  * {{{./plexus-xml/} Plexus XML}}
+    * Plexus Compponents Parent POM: {{{./plexus-components/}plexus-components}}.
+
+  [[4]] <<utilities>>:
+
+    * {{{./plexus-utils/} Plexus Utils}},
+
+    * {{{./plexus-xml/} Plexus XML}}.
+
+  [[5]] <(deprecated) {{{./plexus-containers/}Plexus Container}} (IoC container and companion tools)>, replaced by {{{https://www.eclipse.org/sisu/}Eclipse Sisu}} and {{{https://jcp.org/en/jsr/detail?id=330}JSR-330}}
 
   []
 
 
-Plexus History
-
 ============================
 
-* IMPORTANT NOTICE
+IMPORTANT NOTICE:
+Plexus Container and Companion Tools History
 
-  The Plexus project was previously focused on {{{/plexus-containers/}IoC Plexus Container}}:
-  it is now replaced with {{{https://www.eclipse.org/sisu/}Eclipse Sisu}}, rewritten as an extension on Google Guice.
-  We kept whole content on IoC for reference, even if the IoC part is now obsolete.
+  Plexus was initially composed of 2 parts: Plexus Container (IoC and companion tools) and Plexus Components (like Spring IoC and Spring Components).
+
+  The project was previously focused on {{{./plexus-containers/}Plexus Container (IoC and companion tools)}}, not so much on Plexus Components:
+  <<Plexus Container (IoC and companion tools)>> is now replaced with {{{https://www.eclipse.org/sisu/}Eclipse Sisu}}, written as a {{{https://jcp.org/en/jsr/detail?id=330}JSR-330}}-compliant extension on Google Guice.
+  We kept the whole IoC + components content in this site for IoC historical reference, even if the <{{{./plexus-containers/}IoC and companion tools}}> part is now obsolete.
 
 ============================
 
   See the {{{./ref/feature-comparison.html} Feature Comparison}} page for more information on
-  the differences between Plexus and other products.
+  the differences between Plexus and other IoC ecosystems.
 
   The Plexus project provides a number of pre-built components for common tasks and toolkits
   such as Velocity, i18n, and {{{./ref/available-components.html} many more}}.
