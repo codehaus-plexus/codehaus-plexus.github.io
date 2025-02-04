@@ -9,15 +9,15 @@
 
  <<<The contents of this document are a work in progress>>>
 
-How does Plexus compare with Spring?
+How does Plexus compare with Spring (1, early 2000)?
 
-* Plexus is simpler and much much smaller than Spring. 
-  
+  * <<Plexus is simpler and much much smaller than Spring.>>
+
   The simplest Spring Component which has configuration settings injected is 
   more complex than in an equivalent case for Plexus as Plexus does not require
   setters.
 
-* Spring attempts to be a Swiss Army knife.
+  * <<Spring attempts to be a Swiss Army knife.>>
 
   Spring tries to sell itself as a "j2ee framework" and as a Swiss Army knife -
   one framework for all possible problems. 
@@ -32,21 +32,21 @@ How does Plexus compare with Spring?
   Army knife you can use better tools:  hammer, screwdriver as you need to use 
   them without having to include them all.
 
-* Complex component life cycles are not supported in Spring.
+ * <<Complex component life cycles are not supported in Spring.>>
 
-* Spring configuration files are much longer than the one for Plexus.
+ * <<Spring configuration files are much longer than the one for Plexus.>>
 
   Specifically hierarchical configuration settings ala xstream are not
   supported by Spring.
 
-* Spring is not using IoC for all dependecies of components.
+ * <<Spring is not using IoC for all dependecies of components.>>
 
   For example Spring is promoting terrible things like logging based on commons-logging,
   which makes most of the component dependent on an ugly singleton (IoC is 
   against singletons!) and inevitably leads to incorrect class loader 
   hierarchies (commons-logging must be in root classloader of the container).
 
-* Missing notion of "Component identity"
+ * <<Missing notion of "Component identity">>
 
   Spring doesn't allow you to direct logging output from two deployed instances
   of the same component/bean to different files (unless you use AOP). This is
@@ -54,13 +54,13 @@ How does Plexus compare with Spring?
   the logging system. In Plexus such things are possible - but not yet
   implemented.
 
-* Component class loader isolation.
+ * <<Component class loader isolation.>>
 
   Spring doesn't allow you to easly deploy two distinct components which are 
   using conflicting version of "the same" jar (e.g. common-collections-2.x and
   commons-collection-3.x). for their internal stuff.
 
-* In Plexus you don't have to repeat yourself.
+ * <<In Plexus you don't have to repeat yourself.>>
 
   Component descriptors which are in jars contain the facts which are needed 
   by the container to manage components. Component personalities provide useful 

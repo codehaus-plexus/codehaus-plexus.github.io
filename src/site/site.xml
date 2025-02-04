@@ -39,6 +39,8 @@ under the License.
 
   <body>
     <links>
+      <item name="JSR-330" href="https://jcp.org/en/jsr/detail?id=330"/>
+      <item name="Eclipse Sisu" href="https://www.eclipse.org/sisu/"/>
       <item name="Plexus" href="http://codehaus-plexus.github.io/" />
     </links>
 
