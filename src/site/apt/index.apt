@@ -40,11 +40,9 @@ Overview
 
     []
 
-  [[3]] <<Parent POMs>>:
+  [[3]] <<Parent POM>>:
 
     * Plexus Parent POM: {{{./plexus-pom/}plexus}},
-
-    * Plexus Compponents Parent POM: {{{./plexus-components/}plexus-components}}.
 
   [[4]] <<utilities>>:
 
