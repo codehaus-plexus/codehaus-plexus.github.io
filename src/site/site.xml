@@ -47,10 +47,6 @@ under the License.
     </menu>
 
     <menu name="Old IoC Documentation">
-    <item name="Books">
-      <item name="Writing Components" href="/writing-components-trail/index.html" />
-    </item>
-
     <item name="Guides">
       <!-- 5 minute tutorial -->
       <item name="Quick Start" href="/guides/quick-start/getting-started.html" />
@@ -74,7 +70,7 @@ under the License.
     </menu>
 
     <menu name="Community">
-      <item name="Mailing Lists" href="https://groups.google.com/g/mojohaus-dev" />
+      <item name="Issues" href="https://github.com/codehaus-plexus" />
       <item name="Get Involved" href="/get-involved.html" />
     </menu>
   </body>
