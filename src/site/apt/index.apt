@@ -74,6 +74,4 @@ Plexus Container and Companion Tools History
   The Plexus project provides a number of pre-built components for common tasks and toolkits
   such as Velocity, i18n, and {{{./ref/available-components.html} many more}}.
 
-  For answers to common questions about Plexus, see the {{{./faq.html} FAQ}}.
-
 
