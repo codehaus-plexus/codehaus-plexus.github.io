@@ -1,64 +1,102 @@
-<document>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 https://maven.apache.org/xsd/xdoc-2.0.xsd">
   <properties>
-    <title>Community - Getting Involved</title>
-    <author email="rahul@codehaus.org">Rahul Thakur</author>
-    <author email="olamy@codehaus.org">Olivier Lamy</author>
+    <title>Getting Involved</title>
+    <author>Rahul Thakur</author>
+    <author>Olivier Lamy</author>
   </properties>
+
   <body>
-    <section name="How do I get involved in Plexus development?">
-      <subsection name="Interested in being a part of Plexus development team.... that's great!">
-        <p>You can contribute: 
-        <ul>
-            <li>by asking questions and sharing ideas on Plexus mailing lists
-            </li>
-            <li>by picking up issues of interest and submitting patches with Plexus team.</li>
-          </ul>
+    <section name="Getting Involved">
+
+      <p>
+        Contributions are welcome. The full guide lives with the code:
+        <a href="https://github.com/codehaus-plexus/.github/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+        The short version is below.
+      </p>
+
+      <subsection name="Where to ask">
+        <p>
+          <a href="https://github.com/codehaus-plexus">GitHub issues</a>, on the repository concerned.
+          That is where the maintainers are. There is no Plexus mailing list — if you find one referenced
+          in older documentation on this site, it is defunct.
+        </p>
+        <p>
+          Each project on the <a href="./index.html">overview page</a> links to its own repository. If you
+          aren't sure which one owns the behaviour you're seeing, open the issue wherever seems closest
+          and we'll move it.
         </p>
       </subsection>
-      <subsection name="Reporting Issues">
-        <p>Before reporting please chose the correct project on Github</p>
-      </subsection>
-      <subsection name="Creating and submitting a patch">
-        <p>First you need to create an issue on Github in the correct project.</p>
-        <br />
-        <p>If your patch is a improvement or a new feature : add a junit.</p>
-      </subsection>
-      <subsection name="License">
-        <p>All sources must contain the following license header :
-          <source>
-/*
- * Copyright 2007 The Codehaus Foundation.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */     
-          </source>
+
+      <subsection name="Building">
+        <p>
+          <code>mvn verify</code>. No profile or local setup is required. CI builds across JDK 8, 21 and 25
+          on Linux, Windows and macOS.
         </p>
       </subsection>
-      <subsection name="Plexus Code Style">
-        <p>The following sections show how to set up the code style for Maven in IDEA and Eclipse. It is strongly preferred that patches use this style before they are spplied</p>
-        <subsection name="IntelliJ IDEA 4.5+">
-          <p>
-            Download <a href="codestyle/maven-idea-codestyle.xml">maven-idea-codestyle.xml</a> and copy it to ~/.IntelliJIDEA/config/codestyles then restart IDEA. On Windows, try C:\Documents and Settings&lt;username&gt;\.IntelliJIDEA\config\codestyles
-          </p>
-          <p>After this, restart IDEA and open the settings to select the new code style.</p>
-        </subsection>
-        <subsection name="Eclipse 3.2+">
-          <p>Download <a href="codestyle/maven-eclipse-codestyle.xml">maven-eclipse-codestyle.xml</a>
-          </p>
-          <p>After this, select Window > Preferences, and open up the configuration for Java > Code Style > Code Formatter. Click on the button labeled Import... and select the file you downloaded. Give the style a name, and click OK.
-          </p>
-        </subsection>
+
+      <subsection name="Code style">
+        <p>
+          Formatting is enforced by the build, via
+          <a href="https://github.com/diffplug/spotless">Spotless</a> and
+          <a href="https://github.com/palantir/palantir-java-format">palantir-java-format</a>. Don't hand-format,
+          and don't reformat code you aren't otherwise touching. Before pushing:
+        </p>
+        <source>mvn spotless:apply</source>
+        <p>
+          If CI fails on <code>spotless:check</code>, running that command and committing the result is the
+          whole fix.
+        </p>
+        <p>
+          This page previously offered <code>maven-eclipse-codestyle.xml</code> and
+          <code>maven-idea-codestyle.xml</code> for import into your IDE. Those predate Spotless and no longer
+          match what the build enforces, so they are no longer linked from here. The files themselves are still
+          served, so any existing link to them keeps working.
+        </p>
       </subsection>
+
+      <subsection name="Licence headers">
+        <p>
+          New files take the standard header used by the files around them — Apache-2.0 for everything except
+          Modello, which is MIT. Please do not update or normalise existing copyright headers, including the
+          older Codehaus Foundation ones; they record who contributed what.
+        </p>
+      </subsection>
+
+      <subsection name="Pull requests">
+        <p>
+          One concern per pull request, a test where the change is testable, and an explanation of <i>why</i> in
+          the description. These libraries are consumed transitively across most of the Maven plugin ecosystem,
+          so changes to public API need discussion in an issue first — deprecate rather than remove.
+        </p>
+      </subsection>
+
+      <subsection name="Security">
+        <p>
+          Please do not open a public issue for a vulnerability. See
+          <a href="https://github.com/codehaus-plexus/.github/blob/master/SECURITY.md">SECURITY.md</a>.
+        </p>
+      </subsection>
+
     </section>
   </body>
 </document>

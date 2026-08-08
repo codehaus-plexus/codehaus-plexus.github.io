@@ -46,7 +46,10 @@ under the License.
       <item name="Overview" href="/index.html" />
     </menu>
 
-    <menu name="Old IoC Documentation">
+    <!-- Historical documentation for the retired Plexus IoC container, replaced by Eclipse Sisu.
+         Kept, and kept at these exact URLs, because a great deal of external writing links to it.
+         Do not move or delete these pages. -->
+    <menu name="Plexus Container (retired)">
     <item name="Guides">
       <!-- 5 minute tutorial -->
       <item name="Quick Start" href="/guides/quick-start/getting-started.html" />
@@ -71,6 +74,8 @@ under the License.
 
     <menu name="Community">
       <item name="Issues" href="https://github.com/codehaus-plexus" />
+      <item name="Contributing" href="https://github.com/codehaus-plexus/.github/blob/master/CONTRIBUTING.md" />
+      <item name="Security" href="https://github.com/codehaus-plexus/.github/blob/master/SECURITY.md" />
       <item name="Get Involved" href="/get-involved.html" />
     </menu>
   </body>
