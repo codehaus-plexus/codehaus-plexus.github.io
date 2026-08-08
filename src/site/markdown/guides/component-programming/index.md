@@ -1,21 +1,17 @@
- ------
- User Guide - Component-oriented Programming
- ------
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: User Guide - Component-oriented Programming
+author: Rahul Thakur
+date: 2006-06-17
+---
 
-What is a Component? 
+# What is a Component?
 
-  TODO 
+TODO
 
+# What is Component-oriented Programming (COP) all about?
 
-What is Component-oriented Programming (COP) all about? 
+TODO
 
-  TODO
+# Where does Plexus fit into picture?
 
-
-Where does Plexus fit into picture? 
-
-  TODO
+TODO

@@ -1,47 +1,41 @@
- -----
-Using a Plexus Component from a Maven Mojo.
- -----
-Rahul Thakur
- ----
-2006-06-08
- ------
+---
+title: Using a Plexus Component from a Maven Mojo.
+author: Rahul Thakur
+date: 2006-06-08
+---
 
-Website Monitor Plugin 
+# Website Monitor Plugin
 
- This section will show how to use a Plexus component from within a Maven mojo.
+This section will show how to use a Plexus component from within a Maven mojo.
 
-* Setting up a Maven Plugin Project
+## Setting up a Maven Plugin Project
 
-** Creating a Maven plugin Project using an archetype
+### Creating a Maven plugin Project using an archetype
 
-  Maven Archetypes are discussed in detail {{{http://maven.apache.org/guides/mini/guide-creating-archetypes.html}here}}.
+Maven Archetypes are discussed in detail [here](http://maven.apache.org/guides/mini/guide-creating-archetypes.html).
 
-  [[1]] From the command prompt, change directory to the location where you 
-  want to setup the maven plugin project.
+1. From the command prompt, change directory to the location where you want to setup the maven plugin project.
 
-  [[1]] Run the following command to set up a skeleton Maven Plugin project.  
+1. Run the following command to set up a skeleton Maven Plugin project.
 
-+------------------------------------------+
+```
 
  mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-mojo \
      -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=org.codehaus.plexus -DartifactId=plexus-website-monitor-plugin
 
-+------------------------------------------+
+```
 
- The <<<maven-archetype-mojo>>> sets up a skeleton Maven plugin project '<<<plexus-website-monitor-plugin>>>' for 
- us with reasonable defaults.
+The `maven-archetype-mojo` sets up a skeleton Maven plugin project '`plexus-website-monitor-plugin`' for us with reasonable defaults.
 
- 
-** Updating pom.xml dependencies
+### Updating pom.xml dependencies
 
-  [[1]] Locate pom.xml under the '<<<plexus-website-monitor-plugin>>>' folder. 
+1. Locate pom.xml under the '`plexus-website-monitor-plugin`' folder.
 
-  [[1]] Edit it and add a <<<dependency>>> to the 
-  plexus-website-monitor-component that we have developed in earlier chapters.
+1. Edit it and add a `dependency` to the plexus-website-monitor-component that we have developed in earlier chapters.
 
-    The pom.xml should look like this now:
+The pom.xml should look like this now:
 
-+------------------------------------------+
+```
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
@@ -70,24 +64,20 @@ Website Monitor Plugin
     </dependency>
   </dependencies>
 </project>
-+------------------------------------------+
+```
 
+### Setting up an Eclipse project
 
-** Setting up an Eclipse project 
+Note that this step assumes that we have Plexus Website Monitor Component available in our local repository or downloadable from a remote repository.
 
-  Note that this step assumes that we have Plexus Website Monitor Component 
-  available in our local repository or downloadable from a remote repository.
-  
-  [[1]] Run the following command to generate Eclipse project and set up library path to dependencies.
+1. Run the following command to generate Eclipse project and set up library path to dependencies.
 
-+------------------------------------------+
+```
  mvn eclipse:eclipse
-+------------------------------------------+
+```
 
-  [[1]] From the Eclipse workbench, use 'File > Import > Existing projects into workspace' 
-  to import the created maven plugin project. 
+1. From the Eclipse workbench, use 'File \> Import \> Existing projects into workspace' to import the created maven plugin project.
 
-    The website monitor plugin should now be set up as a project under Eclipse.
+The website monitor plugin should now be set up as a project under Eclipse.
 
-
- {{{./07_01_implementing_monitor_mojo.html}Next: Implementing Monitor Mojo}}
+[Next: Implementing Monitor Mojo](./07_01_implementing_monitor_mojo.html)

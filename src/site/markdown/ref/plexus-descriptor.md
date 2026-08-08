@@ -1,11 +1,9 @@
- ------
- Plexus Descriptor - A reference
- ------
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Plexus Descriptor - A reference
+author: Rahul Thakur
+date: 2006-06-17
+---
 
-Plexus Descriptor Reference
+# Plexus Descriptor Reference
 
- Coming soon...
+Coming soon...

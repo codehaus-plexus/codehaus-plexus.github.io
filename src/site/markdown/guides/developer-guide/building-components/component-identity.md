@@ -1,47 +1,27 @@
- ------
- Developer Guide - Component Identity
- ------
-Michal Maczka
- Rahul Thakur
- ------
-2006-06-17
- ------
- 
- 
- 
-Component Identity
- 
- In order to perform a "lookup" operation and connect components together we 
- need to have a means of selecting them in an unambiguous way. This means each
- deployed instance of the component object must be distinguishable from any 
- other component, that is visible within the container. So each installed 
- component object must have some sort of unique identifier attached to it, the 
- 'component identifier'.
+---
+title: Developer Guide - Component Identity
+author:
+  - Michal Maczka
+  - Rahul Thakur
+date: 2006-06-17
+---
 
+# Component Identity
 
- There are at least two situations when a component identifier is need:
+In order to perform a "lookup" operation and connect components together we need to have a means of selecting them in an unambiguous way. This means each deployed instance of the component object must be distinguishable from any other component, that is visible within the container. So each installed component object must have some sort of unique identifier attached to it, the 'component identifier'.
 
-  * component assembler (human) must use it to connect components together
-    (a "wiring process")
+There are at least two situations when a component identifier is need:
 
-  * for dynamic component lookup operations while the application is running.
- 
+- component assembler (human) must use it to connect components together (a "wiring process")
 
+- for dynamic component lookup operations while the application is running.
 
- In Plexus, component identity is defined by the component descriptors and
- is the same for both situations mentioned above.
+In Plexus, component identity is defined by the component descriptors and is the same for both situations mentioned above.
 
- At the moment the two attributes of the component descriptor are: <role> and
- <role-hint>.
+At the moment the two attributes of the component descriptor are: _role_ and _role-hint_.
 
+_role_ attribute is mandatory - every component descriptor must have it, _role-hint_ is used as differentiator between components in situations when more then one component is able to play a given role in component assembly.
 
- <role> attribute is mandatory - every component descriptor must have it,
- <role-hint> is used as differentiator between components in situations when 
- more then one component is able to play a given role in component assembly.
- 
- The component key is plexus = ( <role>, <role-hint> ), if <role-hint> is not
- given it is ( <role>, null )
- 
- In the future this may be extended. For example a <version> attribute of the
- component descriptor would be used or there may be the possibility of
- defining aliases for components.
+The component key is plexus \= ( _role_, _role-hint_ ), if _role-hint_ is not given it is ( _role_, null )
+
+In the future this may be extended. For example a _version_ attribute of the component descriptor would be used or there may be the possibility of defining aliases for components.

@@ -1,69 +1,67 @@
- ------
- Developer Guide - Table of Contents
- ------
- Michal Maczka
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Developer Guide - Table of Contents
+author:
+  - Michal Maczka
+  - Rahul Thakur
+date: 2006-06-17
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Table of Contents 
+# Table of Contents
 
-  * {{{./introduction.html}Introduction to Plexus}}
+- [Introduction to Plexus](./introduction.html)
 
-  * {{{./developing-components.html}Developing Components}}
+- [Developing Components](./developing-components.html)
 
-    * {{{./introduction-to-components.html}Introduction To Components}}
+- [Introduction To Components](./introduction-to-components.html)
 
-    * {{{./lifecycle.html}Lifecycle}}
+- [Lifecycle](./lifecycle.html)
 
-    * {{{./personalities/index.html}Personalities}}
+- [Personalities](./personalities/index.html)
 
-      * {{{./personalities/plexus-personality.html}Plexus Personality}}
+- [Plexus Personality](./personalities/plexus-personality.html)
 
-      * {{{./personalities/avalon-personality.html}Avalon Personality}}
+- [Avalon Personality](./personalities/avalon-personality.html)
 
-      * {{{./personalities/pico-personality.html}Pico Personality}}
+- [Pico Personality](./personalities/pico-personality.html)
 
-      * {{{./personalities/spring-personality.html}Spring Personality}}
+- [Spring Personality](./personalities/spring-personality.html)
 
-    * {{{./configuration/index.html}Configuration files}}
+- [Configuration files](./configuration/index.html)
 
-      * {{{./configuration/component-descriptor.html}Component Descriptor}}
+- [Component Descriptor](./configuration/component-descriptor.html)
 
-      * {{{./configuration/plexus-auto-configuration.html}Component auto-configuration}}
+- [Component auto-configuration](./configuration/plexus-auto-configuration.html)
 
-    * {{{./building-components/index.html}Building Components}}
+- [Building Components](./building-components/index.html)
 
-      * {{{./building-components/component-identity.html}Component Identity}}
+- [Component Identity](./building-components/component-identity.html)
 
-      * {{{./building-components/component-testing.html}Component Testing}}
+- [Component Testing](./building-components/component-testing.html)
 
-  * {{{./building-applications/index.html}Developing Applications}}
+- [Developing Applications](./building-applications/index.html)
 
-    * {{{./building-applications/runtime-builder.html}Runtime Builder}}
+- [Runtime Builder](./building-applications/runtime-builder.html)
 
-    * {{{./building-applications/cdc.html}Component Descriptor Creator (CDC)}}
+- [Component Descriptor Creator (CDC)](./building-applications/cdc.html)
 
-  * {{{./plexus-application-server.html}Plexus Application Server}}
+- [Plexus Application Server](./plexus-application-server.html)
 
-    * {{{./building-pars.html}Building PARs}}
+- [Building PARs](./building-pars.html)
 
-    * {{{./deploying-pars.html}Deploying PARs}}
+- [Deploying PARs](./deploying-pars.html)
 
-    * {{{./services.html}Services}}
+- [Services](./services.html)
 
-  * {{{./advanced-topics/index.html}Advanced Topics}}
+- [Advanced Topics](./advanced-topics/index.html)
 
-    * {{{./advanced-topics/plexus-class-loading.html}Plexus Class Loading}}
+- [Plexus Class Loading](./advanced-topics/plexus-class-loading.html)
 
-    * {{{./advanced-topics/programmatic-container-configuration.html}Programmatic Configuration of Container}}
+- [Programmatic Configuration of Container](./advanced-topics/programmatic-container-configuration.html)
 
-  * Appendices 
- 
-    * {{{./appendices/javadoc-tags-reference.html}Appendix I: Javadoc tags reference for CDC}}
-    
-    * {{{./appendices/plexus-maven-plugin-reference.html}Appendix II: Plexus Maven Plugin}}
+- Appendices
 
+- [Appendix I: Javadoc tags reference for CDC](./appendices/javadoc-tags-reference.html)
+
+- [Appendix II: Plexus Maven Plugin](./appendices/plexus-maven-plugin-reference.html)

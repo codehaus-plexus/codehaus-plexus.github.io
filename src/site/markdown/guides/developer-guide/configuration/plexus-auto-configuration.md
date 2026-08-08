@@ -1,25 +1,22 @@
- ------
- How auto-configuration works
- ------
- Michal Maczka
- ------
-2004-10-13
- ------
+---
+title: How auto-configuration works
+author: Michal Maczka
+date: 2004-10-13
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Plexus Auto Configuration
+# Plexus Auto Configuration
 
-* Auto configuration is ...
+## Auto configuration is ...
 
-    If you are familiar with libraries like {{{http://xstream.codehaus.org}xstream}} you will feel at home. If not, it's simple enough anyway.
+If you are familiar with libraries like [xstream](http://xstream.codehaus.org) you will feel at home. If not, it's simple enough anyway.
 
-    The best way to understand how the plexus ComponentConfigurator functions is by example.
-    Assuming that the auto-configuration mechanism is applied to class:
+The best way to understand how the plexus ComponentConfigurator functions is by example. Assuming that the auto-configuration mechanism is applied to class:
 
-    <<com.MyComponent>>
+**com.MyComponent**
 
-+-----------------------------------------------------------------------------+
+```
 class com.MyComponent implements com.SomeInterface
 {
    private String propertyA;
@@ -28,11 +25,11 @@ class com.MyComponent implements com.SomeInterface
 
    ...
 }
-+-----------------------------------------------------------------------------+
+```
 
-    with a plexus configuration like so:
+with a plexus configuration like so:
 
-+-----------------------------------------------------------------------------+
+```
 <component>
   <role>com.SomeInterface</role>
   <implementation>com.MyComponent</implementation>
@@ -41,58 +38,55 @@ class com.MyComponent implements com.SomeInterface
         <propertyB>1</propertyA>
     </configuration>
 </component>
-+-----------------------------------------------------------------------------+
+```
 
-    The actions the plexus ComponentConfigurator would perform on
-    the instance of component would be something like this:
+The actions the plexus ComponentConfigurator would perform on the instance of component would be something like this:
 
-+-----------------------------------------------------------------------------+
+```
 com.SomeInterface component = new com.MyComponent();
 
 component.propertyA = "foo";
 
 component.propertyB = 1;
-+-----------------------------------------------------------------------------+
+```
 
+### Types Supported by Autoconfiguration
 
+#### Basic
 
-** Types Supported by Autoconfiguration
+- java.lang.Boolean & boolean
 
-***   Basic
+- java.lang.Byte & byte
 
-        * java.lang.Boolean & boolean
+- java.lang.Character & char
 
-        * java.lang.Byte & byte
+- java.lang.Double & double
 
-        * java.lang.Character & char
+- java.lang.Float & float
 
-        * java.lang.Double & double
+- java.lang.Integer & int
 
-        * java.lang.Float & float
+- java.lang.Long & long
 
-        * java.lang.Integer & int
+- java.lang.Short & short
 
-        * java.lang.Long & long
+- java.lang.StringBuffer
 
-        * java.lang.Short & short
+- java.lang.String
 
-        * java.lang.StringBuffer
+- java.util.Date (todo: document supported patterns)
 
-        * java.lang.String
+- java.math.BigDecimal
 
-        * java.util.Date (todo: document supported patterns)
+- java.math.BigInteger
 
-        * java.math.BigDecimal
+#### Composite types (Object properties)
 
-        * java.math.BigInteger
+- **Object with properties**
 
-***   Composite types (Object properties)
+_Component implementation:_
 
-        * <<Object with properties>>
-
-            <Component implementation:>
-
-+-----------------------------------------------------------------------------+
+```
 class com.MyComponent
 {
    private Person person;
@@ -108,51 +102,49 @@ class com.Person
 
    ...
 }
-+-----------------------------------------------------------------------------+
+```
 
-            <Component configuration :>
+_Component configuration :_
 
-+-----------------------------------------------------------------------------+
+```
 <configuration>
    <person>
        <firstname>Baltzar<firstname>
        <lastname>Gabka</lastname>
    </person>
 </configuration>
-+-----------------------------------------------------------------------------+
+```
 
+_Actions taken by Component Configurator:_
 
-            <Actions taken by Component Configurator:>
-
-+-----------------------------------------------------------------------------+
+```
 Person person = new Person();
 
 person.firstname = "Baltazar";
 person.lastname = "Gabka";
 
 component.person = person;
-+-----------------------------------------------------------------------------+
+```
 
+- **Collections**
 
-        * <<Collections>>
+TODO: Collections example.
 
-            TODO: Collections example.
+- **java.lang.Properties**
 
-        * <<java.lang.Properties>>
+_Component implementation:_
 
-            <Component implementation:>
-
-+-----------------------------------------------------------------------------+
+```
 class com.MyComponent
 {
    private Properties propertiesA;
    ...
 }
-+-----------------------------------------------------------------------------+
+```
 
-            <Component configuration :>
+_Component configuration :_
 
-+-----------------------------------------------------------------------------+
+```
 <configuration>
    <propertiesA>
       <property>
@@ -165,11 +157,11 @@ class com.MyComponent
       </property>
    </propertiesA>
 </configuration>
-+-----------------------------------------------------------------------------+
+```
 
-            <Actions taken by Component Configurator:>
+_Actions taken by Component Configurator:_
 
-+-----------------------------------------------------------------------------+
+```
 
 com.MyComponent component;
 
@@ -183,26 +175,24 @@ setFieldValue( component, "propertiesA", properties );
 
 component.propertiesA = properties;
 
-+-----------------------------------------------------------------------------+
-        []
+```
 
-*** Advanced mapping
+#### Advanced mapping
 
-    ~~michal: Doesn't this belong in the Collection's section?
+<!-- michal: Doesn't this belong in the Collection's section? -->
+<!-- TODO: Flesh out... -->
 
-    ~~TODO: Flesh out...
-
-+-----------------------------------------------------------------------------+
+```
 <foos elements="java.lang.String"/>
     <id>ala</id>
     <id>ala</id>
     <id>ala</id>
 </foos>
-+-----------------------------------------------------------------------------+
+```
 
-        or possibly (pending implementation)
+or possibly (pending implementation)
 
-+-----------------------------------------------------------------------------+
+```
 <foos elements="com.MyBean" implementation="java.util.LinkedList"/>
     <bean>
         <id>foo</id>
@@ -211,4 +201,4 @@ component.propertiesA = properties;
         </id>ala</id>
     </bean>
 </foos>
-+-----------------------------------------------------------------------------+
+```

@@ -1,102 +1,70 @@
- ------
- Developer Guide - Introduction to Personalities
- ------
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Developer Guide - Introduction to Personalities
+author: Rahul Thakur
+date: 2006-06-17
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Overview
+# Overview
 
- Plexus personalities give you the capability to customize how your component
- lifecycle works.  You can mix and match personalities within Plexus to meet
- your needs.  There is the core Plexus personality for "Plexus Components" as
- well as personalities for {{{http://avalon.apache.org}Avalon}} and
- {{{http://picocontainer.codehaus.org}PicoContainer}}
+Plexus personalities give you the capability to customize how your component lifecycle works. You can mix and match personalities within Plexus to meet your needs. There is the core Plexus personality for "Plexus Components" as well as personalities for [Avalon](http://avalon.apache.org) and [PicoContainer](http://picocontainer.codehaus.org)
 
- Which personality you should use depends on your needs.  If you are just
- starting, you will most likely want to use the Plexus personality.  However,
- each personality has it's own pros and cons.
+Which personality you should use depends on your needs. If you are just starting, you will most likely want to use the Plexus personality. However, each personality has it's own pros and cons.
 
-*----------+--------------+----------------+
-|Personality | Pros | Cons |
-*----------*--------------*----------------*
-| Plexus| Dependency Injection, Auto-configuration| In flux/development|
-*----------*--------------*----------------*
-| Avalon| Components could work across containers, Stable API| Lacks sophisticated features|
-*----------*--------------*----------------*
-| Pico| Use pico components with other components| Weak support currently|
-*----------*--------------*----------------*
+|Personality|Pros|Cons|
+|---|---|---|
+|Plexus|Dependency Injection, Auto-configuration|In flux/development|
+|Avalon|Components could work across containers, Stable API|Lacks sophisticated features|
+|Pico|Use pico components with other components|Weak support currently|
 
- The natural question which might be asked: isn't this a bad idea to mix
- component personalities?  The answer is simple: it is usually better to use
- single component personality,, but sometimes you have no choice.  A component
- is not necesserly a simple class which you can write in 5 minutes.  There are
- much more complex components: LDAP servers, Servlet Containers, Embeddable
- databases etc.  For example Apache James (Java mail server) and quite a lot of
- other components which might be useful for someone were writen in accordance
- with Avalon API.  Plexus gives you as possiblity to reuse those components in
- your applications.  
+The natural question which might be asked: isn't this a bad idea to mix component personalities? The answer is simple: it is usually better to use single component personality,, but sometimes you have no choice. A component is not necesserly a simple class which you can write in 5 minutes. There are much more complex components: LDAP servers, Servlet Containers, Embeddable databases etc. For example Apache James (Java mail server) and quite a lot of other components which might be useful for someone were writen in accordance with Avalon API. Plexus gives you as possiblity to reuse those components in your applications.
 
-The Relation between Component Profile and Component Personality
+# The Relation between Component Profile and Component Personality
 
- ~~(Michal Here I am trying  to clarify some terms - any comments and better definitions are much appriciated):
+<!-- (Michal Here I am trying  to clarify some terms - any comments and better definitions are much appriciated): -->
+Component Personality is an implementation of the contract which must be fulfilled by the container in order to allow it to run components which were written in accordance to that contract (API).
 
- Component Personality is an implementation of the contract which must be
- fulfilled by the container in order to allow it to run components which were
- written in accordance to that contract (API).
+Component Profile provides more convinent, shorter syntax for declaring component descriptors
 
- Component Profile provides more convinent, shorter syntax for declaring component descriptors
+Each component profile will contain information about the following:
 
- Each component profile will contain information about the following:
+- component factory
 
- * component factory
+- component composer
 
- * component composer
+- lifecycle handler
 
- * lifecycle handler
+- manager
 
- * manager
+These are used for managing a given component inside the container. Implemenation of those services may already exist or be provided by an implementation of component personality. For example a list of component managers (instantiation strategies) provided by Plexus is quite complete and there is pratically no need for writing new component manager. But situation looks much different for component lifecycles. Avalon and Pico components have their own lifecycles and implemenation of phases of those lifecycles had to be made for Plexus.
 
- These are used for managing a given component inside the container.
- Implemenation of those services may already exist or be provided by an
- implementation of component personality.  For example a list of component
- managers (instantiation strategies) provided by Plexus is quite complete and
- there is pratically no need for writing new component manager.  But situation
- looks much different for component lifecycles.  Avalon and Pico components
- have their own lifecycles and implemenation of phases of those lifecycles had
- to be made for Plexus.
+Without component profile users will have to do:
 
- Without component profile users will have to do:
-
-+--+
+```
 <component>
   ....
   <component-factory>pico</component-factory>
   <component-composer>noop</component-composer>
   <lifecycle-handler>pico</lifecycle-handler>
 <component>
-+--+
+```
 
- with component profile:
+with component profile:
 
-+--+
+```
 <component>
   ....
   <profile>pico</profile>
 <component>
-+--+
+```
 
- It (will be) is possible to override default values of choosen attributes
- defined in component profile. For example for pico component which should
- have instaniation-strategy = "per-lookup" you can just do:
+It (will be) is possible to override default values of choosen attributes defined in component profile. For example for pico component which should have instaniation-strategy \= "per-lookup" you can just do:
 
-+--+
+```
 <component>
   ....
   <profile>pico</profile>
   <instantiation-strategy>per-lookup</instantiation-strategy>
 <component>
-+--+
+```

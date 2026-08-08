@@ -1,13 +1,11 @@
- ------
- Developer Guide - Appendix II: Plexus Maven Plugin
- ------
- Rahul Thakur
-------
-2006-07-09
- ------
+---
+title: Developer Guide - Appendix II: Plexus Maven Plugin
+author: Rahul Thakur
+date: 2006-07-09
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Plexus Maven Plugin 
+# Plexus Maven Plugin
 
-  ~~TODO: Discuss the use with some example of Mojos available under Plexus Maven plugin
+<!-- TODO: Discuss the use with some example of Mojos available under Plexus Maven plugin -->

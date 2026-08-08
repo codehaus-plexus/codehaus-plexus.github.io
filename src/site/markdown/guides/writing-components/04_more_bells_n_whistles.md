@@ -1,18 +1,16 @@
- -----
-More fun with Plexus Components
- -----
-Rahul Thakur
- ----
-2006-06-11
- ------
+---
+title: More fun with Plexus Components
+author: Rahul Thakur
+date: 2006-06-11
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Control those 'evil' System.out's!
+# Control those 'evil' System.out's!
 
- We tweak our component implementation a bit to allow more control over messages being logged the console. To to this we update DefaultWebsiteMonitor to extend from org.codehaus.plexus.logging.AbstractLogEnabled. System.outs are then replaced by call to getLogger() to obtain the org.codehaus.plexus.logging.Logger instance setup by the container for us. The resulting code looks like this:
+We tweak our component implementation a bit to allow more control over messages being logged the console. To to this we update DefaultWebsiteMonitor to extend from org.codehaus.plexus.logging.AbstractLogEnabled. System.outs are then replaced by call to getLogger() to obtain the org.codehaus.plexus.logging.Logger instance setup by the container for us. The resulting code looks like this:
 
-+------------------------------------------+
+```
 public class DefaultWebsiteMonitor extends AbstractLogEnabled implements WebsiteMonitor {
 
     /*
@@ -43,11 +41,8 @@ public class DefaultWebsiteMonitor extends AbstractLogEnabled implements Website
     }
 
 }
-+------------------------------------------+
+```
 
+# Plugging in our custom Logging implementation
 
-Plugging in our custom Logging implementation
-
- An example of plugging in a custom logging implementation is demonstrated {{{./05_01_custom_logging_implementation.html} here}}.
-
-
+An example of plugging in a custom logging implementation is demonstrated [ here](./05_01_custom_logging_implementation.html).

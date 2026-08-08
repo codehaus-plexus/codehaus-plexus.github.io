@@ -1,73 +1,61 @@
-  ------
-  Developer Guide - Introduction to Plexus Configuration
-  ------
-  Rahul Thakur
-  ------
-2006-06-17
-  ------
- 
- 
-<<The contents of this document are a work in progress>>
- 
-Configuration files
- 
-* Plexus is using the following configuration files
- 
-  * plexus.xml
+---
+title: Developer Guide - Introduction to Plexus Configuration
+author: Rahul Thakur
+date: 2006-06-17
+---
 
-  * plexus.properties
+# **The contents of this document are a work in progress**
 
-  * components.xml files stored in jars
- 
+# Configuration files
 
- !plexus-configuration-files.gif!
- 
- 
- All components which can be used by plexus must have a {{{./component-descriptor.html}Component Descriptor}}.
+## Plexus is using the following configuration files
 
- 
- Component Descriptors can be declared in two places:  <<plexus.xml>> and in <<components.xml>> files which are kept in jars (META-INF/plexus/components.xml).
- 
- 
- <<plexus.xml>> files allows you to configure the following aspects of application:
- 
-  * Define new component descriptors
+- plexus.xml
 
-  * Override component descriptors which are defined in components.xml files
+- plexus.properties
 
-  * Set up LoggerManager for the Application.
+- components.xml files stored in jars
 
-  * Choose which component should be loaded on startup
+!plexus-configuration-files.gif!
 
- ~~TODO Explain Component repository
-  * Location of {{{#}component repository}}
- 
- Plexus component descriptor contains many pieces which must be provided only once. For example componet requiremnets, profile
- etc are pratically constant.
- 
- That's why it is profitable to put such information into jar files and reuse it.
- 
- 
- <<plexus.properties>> file is used for seeding {{{/404.html}plexus context}} which is then used for interpolation of variables in xml configuration files
- (see the explanation below)
- 
- 
-* Component configuration through <<</META-INF/plexus/components.xml>>>
+All components which can be used by plexus must have a [Component Descriptor](./component-descriptor.html).
 
- When starting up Plexus will start discovering components. The default configuration uses the {{{http://svn.plexus.codehaus.org/plexus/trunk/plexus-container/src/java/org/codehaus/plexus/component/discovery/DefaultComponentDiscoverer.java?rev=HEAD&view=auto}DefaultComponentDiscoverer}} to discover components.
- 
- The {{{/404.html}DefaultComponentDiscoverer}} will look for <<</META-INF/plexus/components.xml>>>
- files using {{{http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ClassLoader.html#getResources(java.lang.String)}ClassLoader.getResources()}}. For getting your components picked up by plexus all you need is to have the {{{/404.html}components.xml}} file in your jar.
- 
- 
-* Interpolation of configuration files
+Component Descriptors can be declared in two places: **plexus.xml**and in**components.xml** files which are kept in jars (META-INF/plexus/components.xml).
 
- Plexus will interpolate all the variables that are strings in the plexus context in the configuration file.  For instance, the "plexus.home" is a context variable that tells you the location of the Plexus install.  To use that in your configuration, you would do something like this:
+**plexus.xml** files allows you to configure the following aspects of application:
 
-+-------------------------+
+- Define new component descriptors
+
+- Override component descriptors which are defined in components.xml files
+
+- Set up LoggerManager for the Application.
+
+- Choose which component should be loaded on startup
+
+<!-- TODO Explain Component repository -->
+
+- Location of [component repository]()
+
+Plexus component descriptor contains many pieces which must be provided only once. For example componet requiremnets, profile etc are pratically constant.
+
+That's why it is profitable to put such information into jar files and reuse it.
+
+**plexus.properties** file is used for seeding [plexus context](/404.html) which is then used for interpolation of variables in xml configuration files (see the explanation below)
+
+## Component configuration through `/META-INF/plexus/components.xml`
+
+When starting up Plexus will start discovering components. The default configuration uses the [DefaultComponentDiscoverer](http://svn.plexus.codehaus.org/plexus/trunk/plexus-container/src/java/org/codehaus/plexus/component/discovery/DefaultComponentDiscoverer.java?rev\=HEAD&view\=auto) to discover components.
+
+The [DefaultComponentDiscoverer](/404.html) will look for `/META-INF/plexus/components.xml` files using [ClassLoader.getResources()](http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ClassLoader.html#getResources(java.lang.String)). For getting your components picked up by plexus all you need is to have the [components.xml](/404.html) file in your jar.
+
+## Interpolation of configuration files
+
+Plexus will interpolate all the variables that are strings in the plexus context in the configuration file. For instance, the "plexus.home" is a context variable that tells you the location of the Plexus install. To use that in your configuration, you would do something like this:
+
+```
  <configuration>
    <directory>${plexus.home}/directory</directory>
  </configuration>
-+-------------------------+
+```
 
- This would automatically be expanded to the full directory name when you configure your component.
+This would automatically be expanded to the full directory name when you configure your component.

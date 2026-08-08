@@ -1,28 +1,24 @@
- ------
- Developer Guide - The 'Avalon' Personality
- ------
- Michal Maczka
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Developer Guide - The 'Avalon' Personality
+author:
+  - Michal Maczka
+  - Rahul Thakur
+date: 2006-06-17
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-The 'Avalon' personality
+# The 'Avalon' personality
 
- A good overview of how avalon components work can be found on the Avalon
- website {{{http://avalon.apache.org/central/cop/basics.html}here}}. This should
- beneficial if you are programming components for the Plexus personality as
- well, since the Plexus personality is loosely based on the Avalon API.
+A good overview of how avalon components work can be found on the Avalon website [here](http://avalon.apache.org/central/cop/basics.html). This should beneficial if you are programming components for the Plexus personality as well, since the Plexus personality is loosely based on the Avalon API.
 
- * Enabling the Avalon Personality
+- Enabling the Avalon Personality
 
- You must do three things to enable the Avalon personality within Plexus:
+You must do three things to enable the Avalon personality within Plexus:
 
- [[1]] Add the avalon dependencies
+1. Add the avalon dependencies
 
-+---+
+```
 <dependency>
   <id>avalon-framework</id>
   <version>4.1.4</version>
@@ -34,11 +30,11 @@ The 'Avalon' personality
   <artifactId>plexus-avalon-personality</artifactId>
   <version>0.12</version>
 </dependency>
-+---+
+```
 
- [[1]] Add the lifecycle handler to the plexus configuration
+1. Add the lifecycle handler to the plexus configuration
 
-+---+
+```
 <component-repository implementation="org.codehaus.plexus.personality.avalon.AvalonComponentRepository">
     <composition-resolver implementation="org.codehaus.plexus.component.composition.DefaultCompositionResolver"/>
   </component-repository>
@@ -78,22 +74,20 @@ The 'Avalon' personality
       </lifecycle-handler>
     </lifecycle-handlers>
   </lifecycle-handler-manager>
-+---+
+```
 
- If you wish to have the Avalon personality be your <<default>> personality keep
- the line
+If you wish to have the Avalon personality be your **default** personality keep the line
 
-+---+
+```
 <default-lifecycle-handler-id>avalon</default-lifecycle-handler-id>
-+---+
+```
 
- in your code.  Otherwise remove it and add a tag to each avalon component
- configuration like so:
+in your code. Otherwise remove it and add a tag to each avalon component configuration like so:
 
-+---+
+```
 <component>
   <role>org.codehaus.plexus.jetty.ServletContainer</role>
   <implementation>org.codehaus.plexus.jetty.JettyServletContainer</implementation>
   <lifecycle-handler>avalon</lifecycle-handler>
 </component>
-+---+
+```

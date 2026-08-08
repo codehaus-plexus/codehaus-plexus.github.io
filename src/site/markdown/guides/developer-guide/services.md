@@ -1,9 +1,7 @@
- ------
- Developer Guide - Plexus Application Server - Services
- ------
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Developer Guide - Plexus Application Server - Services
+author: Rahul Thakur
+date: 2006-06-17
+---
 
-Services 
+# Services

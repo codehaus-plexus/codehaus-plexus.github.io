@@ -1,34 +1,28 @@
- -----
-Using a Plexus Component from a Maven Mojo.
- -----
-Rahul Thakur
- ----
-2006-06-27
- ------
+---
+title: Using a Plexus Component from a Maven Mojo.
+author: Rahul Thakur
+date: 2006-06-27
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Implementing the Monitor Mojo
+# Implementing the Monitor Mojo
 
-  If you would like to understand what a Maven Mojo is, please refer to the 
-  documentation {{{http://maven.apache.org/guides/plugin/guide-java-plugin-development.html}here}} 
-  on the Maven website.
+If you would like to understand what a Maven Mojo is, please refer to the documentation [here](http://maven.apache.org/guides/plugin/guide-java-plugin-development.html) on the Maven website.
 
-* Monitor Mojo
+## Monitor Mojo
 
-  We noticed that the archetype creator filled in the maven plugin project with
-  some reasonable defaults. It also created a <<<MyMojo>>> placeholder 
-  implementation of a Mojo for us, but it doesn't do much for us.
+We noticed that the archetype creator filled in the maven plugin project with some reasonable defaults. It also created a `MyMojo` placeholder implementation of a Mojo for us, but it doesn't do much for us.
 
-  So, 
+So,
 
-  [[1]] Delete <<<MyMojo>>> implementation from the project sources.
+1. Delete `MyMojo` implementation from the project sources.
 
-  [[1]] Create a <<<MonitorMojo>>> that extends <<<org.apache.maven.plugin.AbstractMojo>>>.
+1. Create a `MonitorMojo` that extends `org.apache.maven.plugin.AbstractMojo`.
 
-    The Mojo source should like this: 
+The Mojo source should like this:
 
-+-----------------------------------+
+```
 
 public class MonitorMojo
     extends AbstractMojo
@@ -43,12 +37,11 @@ public class MonitorMojo
 
 }
 
-+-----------------------------------+
+```
 
-  [[1]] Add a Javadoc <<<@goal>>> annotation in Javadoc comments for a Class to
-  bind a goal name that runs this Mojo. 
+1. Add a Javadoc `@goal` annotation in Javadoc comments for a Class to bind a goal name that runs this Mojo.
 
-+-----------------------------------+
+```
 
 /**
  * A Mojo that monitors a given list of websites.
@@ -69,17 +62,15 @@ public class MonitorMojo
 
 }
 
-+-----------------------------------+
+```
 
-* Wiring the Website Monitor Component
+## Wiring the Website Monitor Component
 
-  [[1]] Declare a field of type <<<org.codehaus.plexus.tutorial.WebsiteMonitor>>> for <<<MonitorMojo>>>.
+1. Declare a field of type `org.codehaus.plexus.tutorial.WebsiteMonitor` for `MonitorMojo`.
 
-  [[1]] Add a Javadoc annotation <<<@component>>> on the field. This indicates 
-  to Plexus runtime to lookup and populate the field with an implementation 
-  with a Component ROLE = '<<<org.codehaus.plexus.tutorial.WebsiteMonitor>>>'
+1. Add a Javadoc annotation `@component` on the field. This indicates to Plexus runtime to lookup and populate the field with an implementation with a Component ROLE = '`org.codehaus.plexus.tutorial.WebsiteMonitor`'
 
-+-----------------------------------+
+```
 
 /**
  * A Mojo that monitors a given list of websites.
@@ -107,27 +98,17 @@ public class MonitorMojo
 
 }
 
-+-----------------------------------+
-  
+```
 
-  [[1]] (optional) We can get choosy if we know there are more than one 
-  implementations of <<<org.codehaus.plexus.tutorial.WebsiteMonitor>>> ROLE 
-  available. This can done by adding an attribute '<<<role-hint>>>' to the
-  Javadoc annotation that we added in the previous step.
+1. (optional) We can get choosy if we know there are more than one implementations of `org.codehaus.plexus.tutorial.WebsiteMonitor` ROLE available. This can done by adding an attribute '`role-hint`' to the Javadoc annotation that we added in the previous step.
 
-  Say, for instance we had a different website monitor implementation to 
-  monitor FTP websites, the Javadoc annotation for that Mojo field will look
-  like the snippet below. 
-  
-  Of course, the value of <<<role-hint>>> provided in the code snippet 
-  reproduced below should have been defined for the website monitor's 
-  implementation's component descriptor that monitors FTP sites.
+Say, for instance we had a different website monitor implementation to monitor FTP websites, the Javadoc annotation for that Mojo field will look like the snippet below.
 
-  Again the Plexus runtime does the magic of injecting the appropriate
-  implementation.
+Of course, the value of `role-hint` provided in the code snippet reproduced below should have been defined for the website monitor's implementation's component descriptor that monitors FTP sites.
 
+Again the Plexus runtime does the magic of injecting the appropriate implementation.
 
-+-----------------------------------+
+```
 
 /**
  * A Mojo that monitors a given list of websites.
@@ -155,8 +136,6 @@ public class MonitorMojo
 
 }
 
-+-----------------------------------+
+```
 
-
- {{{./07_01_configuring_monitor_mojo.html}Next: Adding configuration for the Mojo}}
-
+[Next: Adding configuration for the Mojo](./07_01_configuring_monitor_mojo.html)

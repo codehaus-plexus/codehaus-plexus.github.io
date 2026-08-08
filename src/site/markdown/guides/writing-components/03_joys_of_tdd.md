@@ -1,22 +1,20 @@
- -----
-Writing tests for a Plexus Component
- -----
-Rahul Thakur
- ----
-2006-06-11
- ------
+---
+title: Writing tests for a Plexus Component
+author: Rahul Thakur
+date: 2006-06-11
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Testing our Plexus Component
+# Testing our Plexus Component
 
- We create a basic unit test for our component. We do this by extending the PlexusTestCase class rather than the JUnit TestCase. PlexusTestCase sets up a Plexus Container intance for us to allow our component to be executed as it would when its deployed.
+We create a basic unit test for our component. We do this by extending the PlexusTestCase class rather than the JUnit TestCase. PlexusTestCase sets up a Plexus Container intance for us to allow our component to be executed as it would when its deployed.
 
- Note that if we override the setUp () and tearDown()  methods to add some custom set up or clean up bits to our test case, then we need to ensure that super.XXX() is called (where XXX is the method being overridden).  Othewise we will need to take care of Plexus container instance setup and clean ups ourselves.
+Note that if we override the setUp () and tearDown() methods to add some custom set up or clean up bits to our test case, then we need to ensure that super.XXX() is called (where XXX is the method being overridden). Othewise we will need to take care of Plexus container instance setup and clean ups ourselves.
 
- Here is a rudimentary test case for your component.  
+Here is a rudimentary test case for your component.
 
-+------------------------------------------+
+```
 package org.codehaus.plexus.tutorial;
 
 import java.net.UnknownHostException;
@@ -37,7 +35,6 @@ public class WebsiteMonitorTest extends PlexusTestCase {
         super.setUp ();
     }
 
-
     /**
      * Test if we are able to lookup and obtain our component instance from the
      * container.
@@ -48,7 +45,6 @@ public class WebsiteMonitorTest extends PlexusTestCase {
         WebsiteMonitor component = (WebsiteMonitor) lookup (WebsiteMonitor.ROLE);
         assertNotNull (component);
     }
-
 
     /**
      * Test an unkown host.
@@ -68,7 +64,6 @@ public class WebsiteMonitorTest extends PlexusTestCase {
         assertEquals (true, (e instanceof UnknownHostException));
     }
 
-
     /**
      * Test a page that does not exists.
      *
@@ -87,12 +82,11 @@ public class WebsiteMonitorTest extends PlexusTestCase {
     }
 
 }
-+------------------------------------------+
+```
 
+Time to take our unit test for a spin! Right click on the test case class in the Package Explorer view in Eclipse and choose to "Run As \> JUnit Test" - our test case fails as expected. Lets start stubbing in some implementation into the component and fixing the situation. The monitor(String website) is implemented as below to check the status of the provided website URL.
 
- Time to take our unit test for a spin! Right click on the test case class in the Package Explorer view in Eclipse and choose to "Run As > JUnit Test" - our test case fails as expected. Lets start stubbing in some implementation into the component and fixing the situation. The monitor(String website) is implemented as below to check the status of the provided website URL.
- 
-+------------------------------------------+
+```
 public class DefaultWebsiteMonitor implements WebsiteMonitor {
 
     /*
@@ -121,7 +115,4 @@ public class DefaultWebsiteMonitor implements WebsiteMonitor {
     }
 
 }
-+------------------------------------------+
-
-
-
+```

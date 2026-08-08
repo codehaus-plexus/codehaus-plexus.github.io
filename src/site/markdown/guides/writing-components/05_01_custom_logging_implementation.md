@@ -1,48 +1,41 @@
- -----
-Overriding Plexus Logger Manager
- -----
-Rahul Thakur
- ----
-2006-06-11
- ------
- 
- 
-Using a custom LoggerManager
+---
+title: Overriding Plexus Logger Manager
+author: Rahul Thakur
+date: 2006-06-11
+---
 
- Say, we want to use Log4j logging for the log messages in our Website monitor component - how could we replace the default logging implementation?
+# Using a custom LoggerManager
 
- Before we demonstrate how logger can be swapped, some notes on how logging is setup up for a Plexus component
+Say, we want to use Log4j logging for the log messages in our Website monitor component - how could we replace the default logging implementation?
 
-    * Logging for a component is handled using a org.codehaus.plexus.logging.LoggerManager component.
-    
-    * LoggerManager makes a org.codehaus.plexus.logging.Logger instance available to the Plexus container. The LoggerManager can create (or obtain) as well as configure the Logger instance before making it available to the Plexus container.
-    
-    * Each component in Plexus runtime get its own Logger instance. 
-    
-    * LoggerManager is initialized on Plexus container startup. It is for this reason, the LoggerManager should be overridden via Plexus container's configuration.
+Before we demonstrate how logger can be swapped, some notes on how logging is setup up for a Plexus component
 
+- Logging for a component is handled using a org.codehaus.plexus.logging.LoggerManager component.
 
- From what we have coded up so far, we don't have Plexus container configuration available to us, nor is it desirable to run our component in a Plexus container without being fully tested. So here is what we do:
+- LoggerManager makes a org.codehaus.plexus.logging.Logger instance available to the Plexus container. The LoggerManager can create (or obtain) as well as configure the Logger instance before making it available to the Plexus container.
 
-   [[1]] Override the configuration used by PlexusTestCase to set up a Plexus Container instance.
-   
-   [[2]] Setup the Log4jLoggerManager in the overridden configuration.
+- Each component in Plexus runtime get its own Logger instance.
 
-   
+- LoggerManager is initialized on Plexus container startup. It is for this reason, the LoggerManager should be overridden via Plexus container's configuration.
 
- For step (1) above we update the WebMonitorTest and override the getCustomConfiguration() method from PlexusTestCase as follows:
+From what we have coded up so far, we don't have Plexus container configuration available to us, nor is it desirable to run our component in a Plexus container without being fully tested. So here is what we do:
 
-+------------------------------------------+
+1. Override the configuration used by PlexusTestCase to set up a Plexus Container instance.
+
+1. Setup the Log4jLoggerManager in the overridden configuration.
+
+For step (1) above we update the WebMonitorTest and override the getCustomConfiguration() method from PlexusTestCase as follows:
+
+```
 protected InputStream getCustomConfiguration() throws Exception {
         InputStream is = this.getClass ().getClassLoader ().getResourceAsStream ("org/codehaus/plexus/PlexusTestContainerConfig.xml");
         return is;
     }
-+------------------------------------------+
+```
 
+For step (2), create an XML configuration file under \<project-root\>/src/test/resources/org/codehaus/plexus/PlexusTestContainerConfig.xml, with following contents:
 
- For step (2), create an XML configuration file under \<project-root\>/src/test/resources/org/codehaus/plexus/PlexusTestContainerConfig.xml, with following contents:
-
-+------------------------------------------+
+```
 <!-- Override the configuration that is used by the PlexusTestCase to create a Container instance -->
 <plexus>
   <components>
@@ -84,5 +77,4 @@ protected InputStream getCustomConfiguration() throws Exception {
     </component>
   </components>
 </plexus>
-+------------------------------------------+
-
+```

@@ -1,97 +1,80 @@
- -----
- Chapter 1 : Setting up a Web application project
- -----
- Rahul Thakur
- -----
-2006-07-10
- -----
+---
+title: Chapter 1 : Setting up a Web application project
+author: Rahul Thakur
+date: 2006-07-10
+---
 
-Overview
+# Overview
 
- The chapter explains how to set up a Plexus web application project.
+The chapter explains how to set up a Plexus web application project.
 
-* Pre-requisites
+## Pre-requisites
 
- The tutorial assumes you have Maven 2.0.x+ setup and have an internet 
- connection and are able to download required Maven artifacts from online 
- repositories.
+The tutorial assumes you have Maven 2.0.x\+ setup and have an internet connection and are able to download required Maven artifacts from online repositories.
 
- 
-* Set up a Web application project from an Archetype
+## Set up a Web application project from an Archetype
 
- We use Maven's Web application archetype to create a skeleton web application 
- project to get us started. 
+We use Maven's Web application archetype to create a skeleton web application project to get us started.
 
- From the command prompt, change directory to the location where you wish to 
- set up the new Plexus Component project.  Run the following command from the
- command line to setup an initial project structure
+From the command prompt, change directory to the location where you wish to set up the new Plexus Component project. Run the following command from the command line to setup an initial project structure
 
-+------------------------------------------+
+```
  mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetype -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.0-
 SNAPSHOT -DgroupId=org.codehaus.plexus.examples -DartifactId=plexus-example-webapp  -DpackageName=org.codehaus.plexus.tutorial -Dpackaging=war
-+------------------------------------------+ 
+```
 
- This should create a blank web application project.
+This should create a blank web application project.
 
-** Archetype creation options explained
+### Archetype creation options explained
 
- More info on archetype creation and usage can be found here?
+More info on archetype creation and usage can be found here?
 
- The following table explains the options that we used above.
+The following table explains the options that we used above.
 
-*----------+--------------+----------------:
-| Commandline Option 	| Description 	| Required |
-*----------+--------------+----------------:
-| -DarchetypeGroupId 	| "groupId" for the archetype we want to use 	| Yes |
-*----------+--------------+----------------:
-| -DarchetypeArtifact 	| "artifactId" for the archetype we want to use |	Yes |
-*----------+--------------+----------------:
-| -DarchetypeVersion 	| "version" for the archetype we want to use 	| Yes| 
-*----------+--------------+----------------:
-| -DgroupId 	| "groupId" for the project to be generated 	| Yes |
-*----------+--------------+----------------:
-| -DartifactId | "artifactId" for the project to be generated |	Yes |
-*----------+--------------+----------------:
-| -DpackageName |	Base package name to be use for any Java sources being copied over 	| No|
-*----------+--------------+----------------:
- 
-* Generate a Project for your IDE.
+|Commandline Option|Description|Required|
+|---|---|---|
+|-DarchetypeGroupId|"groupId" for the archetype we want to use|Yes|
+|-DarchetypeArtifact|"artifactId" for the archetype we want to use|Yes|
+|-DarchetypeVersion|"version" for the archetype we want to use|Yes|
+|-DgroupId|"groupId" for the project to be generated|Yes|
+|-DartifactId|"artifactId" for the project to be generated|Yes|
+|-DpackageName|Base package name to be use for any Java sources being copied over|No|
 
-** For Eclipse.
- 
-   [[1]] Change directory to the newly created directory 'plexus-example-webapp'
-   
-   [[1]] Open up pom.xml and review the handful of dependencies setup there for version changes.
+## Generate a Project for your IDE.
 
-   [[1]] Run the following command from command prompt to generate Eclipse project setting files.
+### For Eclipse.
 
-+------------------------------------------+
+1. Change directory to the newly created directory 'plexus-example-webapp'
+
+1. Open up pom.xml and review the handful of dependencies setup there for version changes.
+
+1. Run the following command from command prompt to generate Eclipse project setting files.
+
+```
  mvn eclipse:eclipse
-+------------------------------------------+
+```
 
- Eclipse project files should get generated succesfully at this point. If there were any unsatisfied dependencies (due to 2-1-3), update <version> for dependencies in pom.xml to an available release version.
- 
-   [[1]] Fire up Eclipse and import the generated project into an Eclipse Workspace.
- 
-** Add sources/resources directories
+Eclipse project files should get generated succesfully at this point. If there were any unsatisfied dependencies (due to 2-1-3), update _version_ for dependencies in pom.xml to an available release version.
 
-  Create the following directories under the project root for our application resources:
+1. Fire up Eclipse and import the generated project into an Eclipse Workspace.
 
-  [[1]] <<<src/main/java>>>
+### Add sources/resources directories
 
-  [[1]] <<<src/main/resources>>>
+Create the following directories under the project root for our application resources:
 
-  [[1]] <<<src/test/java>>>
+1. `src/main/java`
 
-  [[1]] <<<src/test/resources>>>
+1. `src/main/resources`
 
+1. `src/test/java`
 
-* Adding project dependencies
+1. `src/test/resources`
 
-  We add project dependencies to the <<<pom.xml>>> located under project root. 
-  The <<<pom.xml>>> looks like below:
+## Adding project dependencies
 
-+-------------+
+We add project dependencies to the `pom.xml` located under project root. The `pom.xml` looks like below:
+
+```
 <?xml version="1.0"?><project>
   <parent>
     <artifactId>plexus-examples</artifactId>
@@ -128,21 +111,18 @@ SNAPSHOT -DgroupId=org.codehaus.plexus.examples -DartifactId=plexus-example-weba
     </dependency>
   </dependencies>
 </project>
-+-------------+
+```
 
- Update Eclipse project dependencies for new library that we added above, to do this:  
+Update Eclipse project dependencies for new library that we added above, to do this:
 
-  [[1]] Open up a command prompt window
-  
-  [[2]] Change directory to the Website Monitor project's folder, and
-  
-  [[3]] Run the following command to update the Eclipse project dependencies.       
-   
-+------------------------------------------+
+1. Open up a command prompt window
+
+1. Change directory to the Website Monitor project's folder, and
+
+1. Run the following command to update the Eclipse project dependencies.
+
+```
 mvn  eclipse:clean  eclipse:eclipse
-+------------------------------------------+
+```
 
-
- Refresh the Eclipse project in the workspace to reflect the updated dependencies.
- 
-
+Refresh the Eclipse project in the workspace to reflect the updated dependencies.
