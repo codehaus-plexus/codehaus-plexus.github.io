@@ -1,40 +1,34 @@
- -----
- Plexus
- -----
- Brett Porter
- -----
-2006-05-26
- -----
+---
+title: Plexus
+author: Brett Porter
+date: 2006-05-26
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Five Minute Tutorial
+# Five Minute Tutorial
 
-  In this tutorial, you will create a simple component, and use the Plexus to start a container.
+In this tutorial, you will create a simple component, and use the Plexus to start a container.
 
-  <<Note:>> If you are using Maven 2, you can obtain the full sample code, and then build and run it using the
-  following commands:
+**Note:** If you are using Maven 2, you can obtain the full sample code, and then build and run it using the following commands:
 
-----
+```
 mvn archetype:create \
     -DarchetypeVersion=1.0-SNAPSHOT\
     -DarchetypeGroupId=org.codehaus.plexus.examples -DarchetypeArtifactId=plexus-examples-tutorial \
     -DartifactId=tutorial -DgroupId=test -DremoteRepositories=http://snapshots.repository.codehaus.org/ 
 cd tutorial
 mvn package exec:java
-----
+```
 
- ~~TODO: this is not done
+<!-- TODO: this is not done -->
+## Creating a Component Interface
 
-* Creating a Component Interface
+The first task to creating a component is to define its _role_. In Java, this usually takes the form of defining an interface with the functionality the component will expose.
 
-  The first task to creating a component is to define its <role>. In Java, this usually takes the form of defining
-  an interface with the functionality the component will expose.
+**Note:** Plexus does not strictly require you use an interface to define the role, however it is strongly recommended to help improve your application design.
 
-  <<Note:>> Plexus does not strictly require you use an interface to define the role, however it is strongly recommended
-  to help improve your application design.
-
-----
+```
 package org.codehaus.plexus.examples.tutorial;
 
 public interface Cheese
@@ -54,21 +48,18 @@ public interface Cheese
      */
     String getAroma();
 }
-----
+```
 
-  The interface declares the <<<String>>> identifier for the role in the <<<ROLE>>> field. The name and value of this
-  field are simply a convention, and could possibly be any other value, as long as they are unique within the container.
-  Using the package and class name guarantees this.
-  ~~TODO: Plexus should have syntactic sugar that uses Cheese.class instead
+The interface declares the `String` identifier for the role in the `ROLE` field. The name and value of this field are simply a convention, and could possibly be any other value, as long as they are unique within the container. Using the package and class name guarantees this.
 
-  The other methods in the interface declare the functionality of the component: an ability to slice the cheese into a
-  given number of slices, and method to retrieve a description of the cheese's aroma.
+<!-- TODO: Plexus should have syntactic sugar that uses Cheese.class instead -->
+The other methods in the interface declare the functionality of the component: an ability to slice the cheese into a given number of slices, and method to retrieve a description of the cheese's aroma.
 
-* Creating a Component Implementation
+## Creating a Component Implementation
 
-  Once an interface is declared, you need to create one or more implementations of the functionality declared by it.
+Once an interface is declared, you need to create one or more implementations of the functionality declared by it.
 
-----
+```
 package org.codehaus.plexus.examples.tutorial;
 
 public class ParmesanCheese
@@ -84,17 +75,15 @@ public class ParmesanCheese
         return "strong";
     }
 }
-----
+```
 
-  The implementation of the <<<Cheese>>> interface above, <<<ParmesanCheese>>> provides the functionality for both the
-  <<<slice()>>> and <<<getAroma()>>> methods, making the component complete.
+The implementation of the `Cheese` interface above, `ParmesanCheese` provides the functionality for both the `slice()` and `getAroma()` methods, making the component complete.
 
-* Creating a Component Descriptor
+## Creating a Component Descriptor
 
-  The final step is to create a component descriptor file, located in <<<META-INF/plexus/components.xml>>> inside the
-  JAR or classloader that houses the component.
+The final step is to create a component descriptor file, located in `META-INF/plexus/components.xml` inside the JAR or classloader that houses the component.
 
-----
+```
 <component-set>
   <components>
     <component>
@@ -104,26 +93,21 @@ public class ParmesanCheese
     </component>
   </components>
 </component-set>
-----
+```
 
-  As you can see, the descriptor contains the single component, with the role declared earlier of <<<Cheese>>>.
-  The descriptor specifies what implementation is used for a given <role hint>. The hint is a mandatory field that
-  differentiates implementations of a given component, and is used when later referencing the component.
+As you can see, the descriptor contains the single component, with the role declared earlier of `Cheese`. The descriptor specifies what implementation is used for a given _role hint_. The hint is a mandatory field that differentiates implementations of a given component, and is used when later referencing the component.
 
-  <<Note:>> It is not necessary to create this descriptor, as the
-  {{{./component-descriptor-creator.html} Component Descriptor Creator}} can do it for you based on the
-  Java class definition and some additional Javadoc annotations.
+**Note:** It is not necessary to create this descriptor, as the [ Component Descriptor Creator](./component-descriptor-creator.html) can do it for you based on the Java class definition and some additional Javadoc annotations.
 
-* Executing the Plexus Application
+## Executing the Plexus Application
 
-  The final step is to execute the application that uses this component. In this example, you will use
-  an container from a standard Java class with a <<<main()>>> method.
+The final step is to execute the application that uses this component. In this example, you will use an container from a standard Java class with a `main()` method.
 
-** Creating the container
+### Creating the container
 
-  Creating the container is very simple:
+Creating the container is very simple:
 
-----
+```
 import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.PlexusContainerException;
 
@@ -136,35 +120,30 @@ public class App
         container.dispose();
     }
 }
-----
+```
 
-  That's all there is to it: create the container, and start it. Defaults and the current classloader will be used,
-  however if you need a more advanced embedder container configuration, see {{{./embedder.html} Using the
-  embedder}}.
+That's all there is to it: create the container, and start it. Defaults and the current classloader will be used, however if you need a more advanced embedder container configuration, see [ Using the embedder](./embedder.html).
 
-** Retrieving the Component
+### Retrieving the Component
 
-  To retrieve the <<<Cheese>>> component from the container and execute it's <<<getAroma()>>> method, add the
-  following lines after those that start the container:
+To retrieve the `Cheese` component from the container and execute it's `getAroma()` method, add the following lines after those that start the container:
 
-----
+```
     Cheese cheese = (Cheese) container.lookup( Cheese.ROLE, "parmesan" );
     System.out.println( "Parmesan is " + cheese.getAroma() );
-----
+```
 
-  That's all there is to getting started with Plexus. Congratulations!
+That's all there is to getting started with Plexus. Congratulations!
 
-  If you are not familiar with component-oriented programming, you may be wondering why you wouldn't just do this:
+If you are not familiar with component-oriented programming, you may be wondering why you wouldn't just do this:
 
-----
+```
     Cheese cheese = new ParmesanCheese();
     System.out.println( "Parmesan is " + cheese.getAroma() );
-----
+```
 
-  For answers to this question and more, see {{{/ref/why-use-components.html} Why Use Components?}}
+For answers to this question and more, see [ Why Use Components?](/ref/why-use-components.html)
 
-* Learning More
+## Learning More
 
-  To learn more about writing components, take the {{{/guides/writing-components/00_index.html} Component Tutorial}}.
-
-
+To learn more about writing components, take the [ Component Tutorial](/guides/writing-components/00_index.html).

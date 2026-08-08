@@ -1,42 +1,32 @@
- -----
-Using a Plexus Component from a Maven Mojo.
- -----
-Rahul Thakur
- ----
-2006-06-27
- ------
+---
+title: Using a Plexus Component from a Maven Mojo.
+author: Rahul Thakur
+date: 2006-06-27
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Setting up unit tests for Monitor Mojo 
+# Setting up unit tests for Monitor Mojo
 
- Unit testing allows us to test out our Mojo implmentation without requiring a
- project to be set up. 
+Unit testing allows us to test out our Mojo implmentation without requiring a project to be set up.
 
- Maven provides a <<Plugin Test Harness>> to enable testing of Mojos. 
+Maven provides a **Plugin Test Harness** to enable testing of Mojos.
 
- Some relatively comprehensive notes on the Maven Plugin Harness are available
- {{{http://docs.codehaus.org/display/MAVEN/Maven+Plugin+Harness}here}}.
+Some relatively comprehensive notes on the Maven Plugin Harness are available [here](http://docs.codehaus.org/display/MAVEN/Maven\+Plugin\+Harness).
 
-* Adding test sources directory to the project 
+## Adding test sources directory to the project
 
-  This step is needed as the Mojo Archetype (as of this writing) does not sets
-  up test folder when we created our Maven plugin project.
+This step is needed as the Mojo Archetype (as of this writing) does not sets up test folder when we created our Maven plugin project.
 
-  [[1]] To the project root add a directory <<<src/test/java>>>. We will create
-  our unit tests under this location. 
+1. To the project root add a directory `src/test/java`. We will create our unit tests under this location.
 
-  [[1]] To the project root add a director <<<src/test/resources>>>. This 
-  directory will hold resources that we use for Mojo testing.  
+1. To the project root add a director `src/test/resources`. This directory will hold resources that we use for Mojo testing.
 
+## Adding plugin test harness dependency
 
-* Adding plugin test harness dependency
+1. First thing we need to do is to add the Maven plugin test harness dependency to our Plugin's `pom.xml`. Locate the `pom.xml` and add the harness dependency as follows.
 
-  [[1]] First thing we need to do is to add the Maven plugin test harness 
-  dependency to our Plugin's <<<pom.xml>>>. Locate the <<<pom.xml>>> and add 
-  the harness dependency as follows.
-
-+----------------------------+  
+```
   <dependencies>
     .
     .
@@ -48,37 +38,27 @@ Setting up unit tests for Monitor Mojo
       <scope>test</scope>
     </dependency>
   </dependencies>
-+----------------------------+  
+```
 
-  [[1]] Next we need to update depdendency references in our Eclipse project 
-  settings to make the plugin testing harness available. To do this run the 
-  following from the command prompt from the plugin project's directory.
+1. Next we need to update depdendency references in our Eclipse project settings to make the plugin testing harness available. To do this run the following from the command prompt from the plugin project's directory.
 
-+----------------------------+
+```
  mvn eclipse:clean eclipse:eclipse
-+----------------------------+
+```
 
-  [[1]] Refresh the Eclipse project by selecting the project root folder and 
-  pressing 'F5' key. 
+1. Refresh the Eclipse project by selecting the project root folder and pressing 'F5' key.
 
-  You will see that the plugin testing harness dependency and the test 
-  directory that we added in the previous step are now updated. 
+You will see that the plugin testing harness dependency and the test directory that we added in the previous step are now updated.
 
-* Writing our Mojo unit tests
-  
-  [[1]] Create a new package <<<org.codehaus.plexus>>> to create our test in.
-  Note that we create the package with the same name that our Mojo 
-  implementation resides in. This is a convenience to test out methods on Mojo
-  which may have access specifiers that allow access only from within same 
-  package.
-  
-  [[1]] We write a couple of tests to ensure that our Mojo instance is being 
-  retrieved as expected, and to test that it executes without errors for a 
-  valid list of websites.
+## Writing our Mojo unit tests
 
-  Our test source looks as follows: 
+1. Create a new package `org.codehaus.plexus` to create our test in. Note that we create the package with the same name that our Mojo implementation resides in. This is a convenience to test out methods on Mojo which may have access specifiers that allow access only from within same package.
 
-+----------------------------+
+1. We write a couple of tests to ensure that our Mojo instance is being retrieved as expected, and to test that it executes without errors for a valid list of websites.
+
+Our test source looks as follows:
+
+```
 public class MonitorMojoTest
     extends AbstractMojoTestCase
 {
@@ -109,12 +89,11 @@ public class MonitorMojoTest
         }
     }
 }
-+----------------------------+
+```
 
-  [[1]] We set up a test configuration for the Mojo under <<<src/test/resources/unit/plugin-config.xml>>> 
-  (yes, that's the file that we refer to in the test above!).
+1. We set up a test configuration for the Mojo under `src/test/resources/unit/plugin-config.xml` (yes, that's the file that we refer to in the test above!).
 
-+----------------------------+
+```
 <project>
   <build>
     <plugins>
@@ -130,11 +109,11 @@ public class MonitorMojoTest
     </plugins>
   </build>
 </project>
-+----------------------------+  
+```
 
-  [[1]] Also our Mojo implementation is now updated to be as below:
+1. Also our Mojo implementation is now updated to be as below:
 
-+----------------------------+  
+```
 public class MonitorMojo
     extends AbstractMojo
 {
@@ -220,21 +199,16 @@ public class MonitorMojo
     }
 
 }
-+----------------------------+    
-  
-  [[1]] Let's run the test and see what happens. You can run the test from 
-  within your favourite IDE, or from command prompt by typing
+```
 
-+----------------------------+  
+1. Let's run the test and see what happens. You can run the test from within your favourite IDE, or from command prompt by typing
+
+```
  mvn clean test 
-+----------------------------+    
-  
-  At this point, the Mojo test should run without any failures. 
-  
-  
-    Great! You have just hooked your Plexus component successfully to a Maven 
-    plugin.
-    
-  For more information on developing and using Maven plugins, please refer to 
-  {{{http://maven.apache.org/guides/plugin/guide-java-plugin-development.html}Guide to Developing Java Plugins}}
-    
+```
+
+At this point, the Mojo test should run without any failures.
+
+Great! You have just hooked your Plexus component successfully to a Maven plugin.
+
+For more information on developing and using Maven plugins, please refer to [Guide to Developing Java Plugins](http://maven.apache.org/guides/plugin/guide-java-plugin-development.html)

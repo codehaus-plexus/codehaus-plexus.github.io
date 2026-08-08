@@ -1,34 +1,28 @@
- -----
-Using a Plexus Component from a Maven Mojo.
- -----
-Rahul Thakur
- ----
-2006-06-27
- ------
+---
+title: Using a Plexus Component from a Maven Mojo.
+author: Rahul Thakur
+date: 2006-06-27
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Adding Configuration for the Monitor Mojo
+# Adding Configuration for the Monitor Mojo
 
+## Configuring a 'short-hand' to invoke Monitor Mojo
 
-* Configuring a 'short-hand' to invoke Monitor Mojo
-  
-  By default Maven expects all Maven plugin artifacts:
-  
-  [[1]] to belong to the group <<<org.apache.maven.plugins>>>
+By default Maven expects all Maven plugin artifacts:
 
-  [[1]] to have the artifactId follow pattern <<<maven-xxxx-plugin>>>, 
-  where <<<xxxx>>> can serve as a short-hand prefix to invoke a Mojo 
-  from a Maven plugin.
+1. to belong to the group `org.apache.maven.plugins`
 
-    For our case we need to let Maven know that our plugin's <<<groupId>>> 
-  and <<<artifactId>>> are different from what Maven expects by default. 
+1. to have the artifactId follow pattern `maven-xxxx-plugin`, where `xxxx` can serve as a short-hand prefix to invoke a Mojo from a Maven plugin.
 
-  So we define for our Maven plugin a <<plugin prefix>> via our plugin's pom.xml.
+For our case we need to let Maven know that our plugin's `groupId` and `artifactId` are different from what Maven expects by default.
 
-  To do this, we add the following to our pom.xml under the <<<<project>>>> element.
+So we define for our Maven plugin a **plugin prefix** via our plugin's pom.xml.
 
-+---------------------------+
+To do this, we add the following to our pom.xml under the `<project`\> element.
+
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   .
@@ -46,17 +40,15 @@ Adding Configuration for the Monitor Mojo
   </build>
 </project>  
 
-+---------------------------+
-  
-  This tells Maven to use <<website>> as a plugin prefix or a 'short-hand' to 
-  allow invoking available Mojo(s) from our plugin.
+```
 
-  [[1]] Next we add the <<<groupId>>> of our Maven plugin in Maven settings 
-  file. This is available under <<<~/.m2/settings.xml>>>.
+This tells Maven to use **website** as a plugin prefix or a 'short-hand' to allow invoking available Mojo(s) from our plugin.
 
-  [[1]] Edit it and add the following: 
+1. Next we add the `groupId` of our Maven plugin in Maven settings file. This is available under `~/.m2/settings.xml`.
 
-+---------------------------+
+1. Edit it and add the following:
+
+```
 <settings>
   .
   .
@@ -65,25 +57,20 @@ Adding Configuration for the Monitor Mojo
     <pluginGroup>org.codehaus.plexus</pluginGroup>
   </pluginGroups>
 </settings>
-+---------------------------+
+```
 
-  This should allow our Mojo to be invoked from the command prompt without have
-  the need to type fully qualified reference to MonitorMojo 
-  (org.codehaus.plexus:plexus-website-monitor-plugin:monitor), and by simply typing:
+This should allow our Mojo to be invoked from the command prompt without have the need to type fully qualified reference to MonitorMojo (org.codehaus.plexus:plexus-website-monitor-plugin:monitor), and by simply typing:
 
-+---------------------------+ 
+```
  mvn website:monitor
-+---------------------------+
+```
 
+A more definitive reference on plugin prefix resolution is available [here](http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html) on the Maven website.
 
-    A more definitive reference on plugin prefix resolution is available {{{http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html}here}} on the Maven website.
+## Configuring list of websites
 
-* Configuring list of websites
+<!-- Now we see how to set up a configuration for the MonitorMojo and use it to  -->
+<!-- convey to the website monitor component the list of websites to monitor. -->
+We will come back to configuring the MonitorMojo but before we do that we'll look at setting up unit tests for it.
 
-  ~~Now we see how to set up a configuration for the MonitorMojo and use it to 
-  ~~convey to the website monitor component the list of websites to monitor.
-
-  We will come back to configuring the MonitorMojo but before we do that we'll
-  look at setting up unit tests for it.
-
- {{{./07_01_setting_up_mojo_unit_tests.html}Next: Setting up Mojo unit tests}}
+[Next: Setting up Mojo unit tests](./07_01_setting_up_mojo_unit_tests.html)

@@ -1,16 +1,12 @@
- -----
-Packaging up a Plexus component.
- -----
-Rahul Thakur
- ----
-2006-06-08
- ------
+---
+title: Packaging up a Plexus component.
+author: Rahul Thakur
+date: 2006-06-08
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Packaging as a Plexus Application
+# Packaging as a Plexus Application
 
- ~~TODO: Discuss what is a Plexus Application - makes use of Plexus Runtime and is managed by Plexus Container
-
-* Elements of a Plexus Application
- 
+<!-- TODO: Discuss what is a Plexus Application - makes use of Plexus Runtime and is managed by Plexus Container -->
+## Elements of a Plexus Application

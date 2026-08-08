@@ -1,11 +1,9 @@
- ------
- Developer Guide - The 'Spring' Personality
- ------
- Rahul Thakur
- ------
-2006-06-17
- ------
+---
+title: Developer Guide - The 'Spring' Personality
+author: Rahul Thakur
+date: 2006-06-17
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-The 'Spring' Personality
+# The 'Spring' Personality

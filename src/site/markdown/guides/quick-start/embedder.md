@@ -1,20 +1,12 @@
- -----
- Plexus Embedder
- -----
- Rahul Thakur
- -----
-2006-06-17
- -----
+---
+title: Plexus Embedder
+author: Rahul Thakur
+date: 2006-06-17
+---
 
-Plexus Embedder 
+# Plexus Embedder
 
-* Overview 
+## Overview
 
-  ~~ Discuss need for Plexus embedder 
-
-  TODO 
-
-
-
-
-
+<!--  Discuss need for Plexus embedder  -->
+TODO

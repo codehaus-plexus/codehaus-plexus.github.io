@@ -1,20 +1,17 @@
- -----
-Configuring Plexus Components
- -----
-Rahul Thakur
- ----
-2006-06-11
- ------
+---
+title: Configuring Plexus Components
+author: Rahul Thakur
+date: 2006-06-11
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-Configuring a Plexus Component via descriptor
+# Configuring a Plexus Component via descriptor
 
- ~~TODO: Start by changing the interface and factoring 'website' out and moving it to be a property in the component injectable by the Container based on configuration.
+<!-- TODO: Start by changing the interface and factoring 'website' out and moving it to be a property in the component injectable by the Container based on configuration. -->
+We change the Component Role interface to look like this:
 
- We change the Component Role interface to look like this:
-
-+------------------------------------------+
+```
 public interface WebsiteMonitor
 {
 
@@ -46,12 +43,11 @@ public interface WebsiteMonitor
      */
     boolean isInitialized();
 }
-+------------------------------------------+
+```
 
+and, factor our component provider implementation to look like this:
 
- and, factor our component provider implementation to look like this:
- 
-+------------------------------------------+
+```
 public class DefaultWebsiteMonitor
     extends AbstractLogEnabled
     implements WebsiteMonitor
@@ -121,18 +117,16 @@ public class DefaultWebsiteMonitor
     }
 
 }
-+------------------------------------------+
+```
 
+Note how `'websites'` is now a java.util.List property rather than a argument to the method. Also notice the annotation @plexus.configuration that indicates that this property is a plexus configuration element. This annotation is processed by Plexus' Component Descriptor Creator (or CDC). The CDC can parse and generate a components.xml from Java sources.
 
- Note how <<<'websites'>>> is now a java.util.List property rather than a argument to the method. Also notice the annotation @plexus.configuration that indicates that this property is a plexus configuration element. This annotation is processed by Plexus' Component Descriptor Creator (or CDC). The CDC can parse and generate a components.xml from Java sources.
+Now that we made `'websites'` to be a configuration property, we need to update the component's descriptor and specify values for websites. We add a list of websites as shown the the snippet below. Plexus container ensures that a component's fields are mapped and initialized and mapped from a component's configuration file. It can intelligently discover and map configuration items of different types like String, Lists (in this case). You can also specify you own configuration implementation class by specifying an `'implementation'` attribute on `<configuration`\> element. Plexus will then attempt to inject the values from the XML configuration into the Configuration implementation's properties. Each of the nested element maps to a configuration property in the implementation class.
 
- Now that we made <<<'websites'>>> to be a configuration property, we need to update the component's descriptor and specify values for websites. We add a list of websites as shown the the snippet below. Plexus container ensures that a component's fields are mapped and initialized and mapped from a component's configuration file. It can intelligently discover and map configuration items of different types like String, Lists (in this case). You can also specify you own configuration implementation class by specifying an <<<'implementation'>>> attribute on <<<<configuration>>>> element. Plexus will then attempt to inject the values from the XML configuration into the Configuration implementation's properties. Each of the nested element maps to a configuration property in the implementation class.
-  
-  ~~TODO: Provide a link to page that discusses configuration mapping.
+<!-- TODO: Provide a link to page that discusses configuration mapping. -->
+This mandates a change in the descriptor, which now looks something like this:
 
- This mandates a change in the descriptor, which now looks something like this:
-
-+------------------------------------------+
+```
 <component-set>
   <components>
     <component>
@@ -150,10 +144,7 @@ public class DefaultWebsiteMonitor
     </component>
   </components>
 </component-set>
-+------------------------------------------+
+```
 
-
- ~~TODO: May be add a time-interval configuration property such that the monitor can ping the specified site at regular intervals
-
- ~~TODO: add a MonitorResult to communicate the results of a Monitoring run back to the client.
-
+<!-- TODO: May be add a time-interval configuration property such that the monitor can ping the specified site at regular intervals -->
+<!-- TODO: add a MonitorResult to communicate the results of a Monitoring run back to the client. -->

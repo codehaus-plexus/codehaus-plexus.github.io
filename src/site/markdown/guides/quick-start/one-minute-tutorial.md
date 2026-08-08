@@ -1,15 +1,14 @@
- -----
- Plexus
- -----
- -----
+---
+title: Plexus
+---
 
-<<This is an old piece of documentation, yet to be integrated into the new site and removed>>
+# **This is an old piece of documentation, yet to be integrated into the new site and removed**
 
-...
+# ...
 
- [[1]] You must create your component implementation.
+1. You must create your component implementation.
 
-+---+
+```
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
 
 public class DefaultCheeseComponent
@@ -27,11 +26,6 @@ public class DefaultCheeseComponent
         return cheese;
     }
 }
-+---+
+```
 
- Notice that we implement <<<Intializable>>>. This is part of the
- {{{./plexus-lifecycle.html}Component Lifecycle}}. When plexus automatically
- instantiates your component it will automatically <<<intiailize()>>> it as
- well.
-
- 
+Notice that we implement `Intializable`. This is part of the [Component Lifecycle](./plexus-lifecycle.html). When plexus automatically instantiates your component it will automatically `intiailize()` it as well.

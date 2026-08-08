@@ -1,22 +1,20 @@
- -----
-Plexus Embedder and Component lookups
- -----
-Rahul Thakur
- ----
-2006-11-15
- ------
- 
- <<<The contents of this document are a work in progress>>>
+---
+title: Plexus Embedder and Component lookups
+author: Rahul Thakur
+date: 2006-11-15
+---
 
-Plexus Embedder
+`The contents of this document are a work in progress`
 
-  The Plexus Embedder allows us to set up and start a Plexus Container container from within a Standalone application. The components can then be looked up in usual manner (we will see demonstrate in bit, if you don't know). 
+# Plexus Embedder
 
-* Making Embedder available to the application 
- 
-  First thing, we need to make the Embedder available to our application by adding a dependency on it in the <<<pom.xml>>>. Follow snippet shows the relevant <<<<dependency>>>> section of the application project's <<<pom.xml>>>.
+The Plexus Embedder allows us to set up and start a Plexus Container container from within a Standalone application. The components can then be looked up in usual manner (we will see demonstrate in bit, if you don't know).
 
-+-------------------------------+ 
+## Making Embedder available to the application
+
+First thing, we need to make the Embedder available to our application by adding a dependency on it in the `pom.xml`. Follow snippet shows the relevant `<dependency`\> section of the application project's `pom.xml`.
+
+```
 
 <project>
   ...
@@ -42,24 +40,23 @@ Plexus Embedder
   ...
 </project>
 
-+-------------------------------+
+```
 
-  Regenerate the IDE project again as discussed in the previous section.
+Regenerate the IDE project again as discussed in the previous section.
 
+## Starting up an embedded Plexus Container instance
 
-* Starting up an embedded Plexus Container instance
+Lets add some code to our Site Monitor application entry class that:
 
-  Lets add some code to our Site Monitor application entry class that:
-  
-  [[1]] creates and starts an Embedder instance
+1. creates and starts an Embedder instance
 
-  [[1]] Obtains <<<PlexusContainer>>> instance, and
+1. Obtains `PlexusContainer` instance, and
 
-  [[1]] performs a lookup for <<<WebsiteMonitor>>> component
+1. performs a lookup for `WebsiteMonitor` component
 
-  Our updated code looks as below:
+Our updated code looks as below:
 
-+-------------------------------+
+```
 public class Main
 {
 
@@ -96,32 +93,24 @@ public class Main
     }
 
 }
-+-------------------------------+
+```
 
-  At this point you can try running the above <<<Main>>> class from your 
-  favorite IDE. For demonstration purposes the <<<WebsiteMonitor>>> is by
-  default configured to monitor <<<http://plexus.codehaus.org>>>. You should
-  see it output the HTTP status for the monitoring request issued. 
+At this point you can try running the above `Main` class from your favorite IDE. For demonstration purposes the `WebsiteMonitor` is by default configured to monitor `http://plexus.codehaus.org`. You should see it output the HTTP status for the monitoring request issued.
 
-  Something like this:
+Something like this:
 
-+--------------------------------+
+```
 [INFO] HTTP request returned HTTP status code: 200 for website: http://plexus.codehaus.org/
-+--------------------------------+
+```
 
-* How does Plexus Embedder works?
+## How does Plexus Embedder works?
 
-  Plexus Embedder creates an instance of Plexus Container, which then loads and
-  parses all available dependencies to discover any Plexus Components and registers 
-  them internally to make them available for look-ups. 
+Plexus Embedder creates an instance of Plexus Container, which then loads and parses all available dependencies to discover any Plexus Components and registers them internally to make them available for look-ups.
 
-  To recapture again, the container looks for a Component descriptor under:
+To recapture again, the container looks for a Component descriptor under:
 
-  [[1]] META-INF/plexus/components.xml
+1. META-INF/plexus/components.xml
 
-  This is exactly what those few lines of code achieve in the above snippet. 
-  You can, of course, use the Embedder to do fancier stuff.
+This is exactly what those few lines of code achieve in the above snippet. You can, of course, use the Embedder to do fancier stuff.
 
-  Great! we have just finished integrating our site monitor component into our 
-  site monitor application.
-
+Great! we have just finished integrating our site monitor component into our site monitor application.

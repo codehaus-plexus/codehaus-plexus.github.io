@@ -1,12 +1,9 @@
- -----
-A working component - finally!
- -----
-Rahul Thakur
- ----
-2006-06-08
- ------
+---
+title: A working component - finally!
+author: Rahul Thakur
+date: 2006-06-08
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
-
-~~TODO:  
+<!-- TODO:   -->

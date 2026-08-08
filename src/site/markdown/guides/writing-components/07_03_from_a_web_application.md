@@ -1,40 +1,32 @@
- -----
-Using a Plexus Component from a web application.
- -----
-Michal Maczka 
-Rahul Thakur
- ----
-2006-11-21
- ------
+---
+title: Using a Plexus Component from a web application.
+author:
+  - Michal Maczka
+  - Rahul Thakur
+date: 2006-11-21
+---
 
- <<<The contents of this document are a work in progress>>>
+`The contents of this document are a work in progress`
 
+# How to use Plexus in web applications
 
-How to use Plexus in web applications
+Before we demonstrate how we can set up a web application to start a Plexus Container and look up Plexus components, let us understand the alternatives that are available to embed Plexus container in web applications.
 
- Before we demonstrate how we can set up a web application to start a Plexus 
- Container and look up Plexus components, let us understand the alternatives 
- that are available to embed Plexus container in web applications.
+## Configuration
 
-* Configuration
+Plexus Servlet module exists for simplifying embedding and usage of Plexus in context of web applications which run inside the servlet container.
 
- Plexus Servlet module exists for simplifying embedding and usage of Plexus in
- context of web applications which run inside the servlet container.
+There are two ways of embedding Plexus.
 
- There are two ways  of embedding Plexus.  
+1. By setting up a **Plexus[ServletContextListener](http://java.sun.com/products/servlet/2.3/javadoc/javax/servlet/ServletContextListener.html)**
 
- [[1]]  By setting up a <<Plexus{{{http://java.sun.com/products/servlet/2.3/javadoc/javax/servlet/ServletContextListener.html}ServletContextListener}}>>
+1. By setting up a **PlexusLoaderServlet**.
 
- [[1]]  By setting up a <<PlexusLoaderServlet>>.
+The first way is suported by servlet containers which are compliant with servlet specification 2.3 or higher. Second one should be used for compatibility with older versions of servlet containers
 
+## Setting up PlexusServletContextListener to embed Plexus
 
- The first way is suported by servlet containers which are compliant with
- servlet specification 2.3 or higher.  Second one should be used for
- compatibility with older versions of servlet containers
-
-* Setting up PlexusServletContextListener to embed Plexus
-
-+---+
+```
 <web-app>
   ...
   <listener>
@@ -42,54 +34,49 @@ How to use Plexus in web applications
   </listener>
   ...
 <web-app>
-+---+
+```
 
-* Setting up PlexusLoaderServlet to embed Plexus
+## Setting up PlexusLoaderServlet to embed Plexus
 
-+---+
+```
 <servlet>
   <servlet-name>plexus</servlet-name>
   <servlet-class>org.codehaus.plexus.servlet.PlexusLoaderServlet</servlet-class>
   <load-on-startup>1</load-on-startup>
 </servlet>
-+---+
+```
 
- By default, in both the above cases, the Plexus Embedder will search for the 
- configuration files in the following locations:
+By default, in both the above cases, the Plexus Embedder will search for the configuration files in the following locations:
 
- * /WEB-INF/plexus.xml (for main Plexus configuration file)
+- /WEB-INF/plexus.xml (for main Plexus configuration file)
 
- * /WEB-INF/plexus.properties (for properties file which is used for seeding Plexus context)
+- /WEB-INF/plexus.properties (for properties file which is used for seeding Plexus context)
 
- These location can be overidden <TODO: explain how>
+These location can be overidden _TODO: explain how_
 
- ~~ TODO: Incorporate following
- ~~ Notes from chat with Trygvis
- ~~ plexus.properties is useful for changing ${properties} in your xml file
- ~~ you can change the location of plexus.xml with servlet configuration
- ~~ init-prameters or something
+<!--  TODO: Incorporate following -->
+<!--  Notes from chat with Trygvis -->
+<!--  plexus.properties is useful for changing ${properties} in your xml file -->
+<!--  you can change the location of plexus.xml with servlet configuration -->
+<!--  init-prameters or something -->
+In both the above cases a new instance of Plexus Conatiner will be created and stored in "application" scope for the web application under the key: **org.codehaus.plexus.PlexusConstants.PLEXUS_KEY**
 
+## How to lookup and release components
 
- In both the above cases a new instance of Plexus Conatiner will be created and stored in
- "application" scope for the web application under the key:
- <<org.codehaus.plexus.PlexusConstants.PLEXUS_KEY>>
+### In a Servlet
 
-* How to lookup and release components
-
-** In a Servlet
-
-+---+
+```
 ...
 ServletContext context = getServletContext();
 VelocityComponent velocityComponent = ( VelocityComponent ) PlexusServletUtils.lookup( context, VelocityComponent.ROLE );
 ...
 PlexusServletUtils.release( context, velocityComponent );
 ...
-+---+
+```
 
-** In JSP
+### In JSP
 
-+---+
+```
 <%
 ...
 VelocityComponent velocityComponent = ( VelocityComponent ) PlexusServletUtils.lookup( application, VelocityComponent.ROLE );
@@ -97,11 +84,11 @@ VelocityComponent velocityComponent = ( VelocityComponent ) PlexusServletUtils.l
 PlexusServletUtils.release( application, velocityComponent );
 ...
 %>
-+---+
+```
 
-** In Struts Action or in similar case 
+### In Struts Action or in similar case
 
-+---+
+```
 public abstract class BaseAction extends Action
 {
     protected Object lookup( HttpServletRequest request, String role )
@@ -135,30 +122,26 @@ public abstract class BaseAction extends Action
         release( request, velocityComponent );
     }
 }
-+---+
+```
 
+## Obtaining the Plexus Container instance
 
-* Obtaining the Plexus Container instance
+If you need to access the instance of PlexusContainer object, it can be obtained by the following call:
 
- If you need to access the instance of PlexusContainer object, it can be 
- obtained by the following call:
-
-+---+
+```
 PlexusContainer getPlexusContainer( ServletContext servletContext )
-+---+
+```
 
-** Required artifacts
+### Required artifacts
 
- Maven dependency:
+Maven dependency:
 
-+---+
+```
 <dependency>
   <groupId>plexus</groupId>
   <artifactId>plexus-servlet</artifactId>
   <version>1.0-beta-2</version>
 </dependency>
-+---+
+```
 
- {{{./07_03_setting_up_a_web_application.html}Next: Setting up a Web Application Project }} 
-
-
+[Next: Setting up a Web Application Project ](./07_03_setting_up_a_web_application.html)
