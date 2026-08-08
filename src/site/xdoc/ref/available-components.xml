@@ -1,91 +1,52 @@
-<document>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 https://maven.apache.org/xsd/xdoc-2.0.xsd">
   <properties>
     <title>Available Plexus Components</title>
-    <author email="rahul@codehaus.org">Rahul Thakur</author>
-    <author email="olamy@codehaus.org">Olivier Lamy</author>
+    <author>Rahul Thakur</author>
+    <author>Olivier Lamy</author>
   </properties>
+
   <body>
-    <section name="List of Available Plexus Components">
-      <subsection name="Main Components">
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td><a href="/plexus-archiver">plexus-archiver</a></td>
-            <td>Component to manipulate archives.</td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-compiler">plexus-compiler</a></td>
-            <td>Components to manipulate compilers.</td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-digest">plexus-digest</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-i18n">plexus-i18n</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-interactivity">plexus-interactivity</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-interpolation">plexus-interpolation</a></td>
-            <td>Flexible interpolation Framework.</td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-io">plexus-io</a></td>
-            <td>Components designed for use in I/O operations.</td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-resources">plexus-resources</a></td>
-            <td>A component to transparently retrieve resources from the filesystem, classpath or internet.</td>
-          </tr>
-          <tr>
-            <td><a href="/plexus-velocity">plexus-velocity</a></td>
-            <td>Component to render velocity templates</td>
-          </tr>
-        </table>
-      </subsection>
-      <subsection name="Sandboxed or Archived Components">
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td><a href="/plexus-cli">plexus-cli</a></td>
-            <td>Components to easily create CLIs.</td>
-          </tr>
-          <tr>
-            <td>plexus-spring</td>
-            <td>Adapter to use plexus components in a springframework application context</td>
-          </tr>
-          <tr>
-            <td>plexus-contextualizer</td>
-            <td>Component to add values in your Plexus Context.</td>
-          </tr>
-          <tr>
-            <td>plexus-xwork-integration</td>
-            <td>Provide an easy integration of Plexus with webwork.</td>
-          </tr>
-          <tr>
-            <td>plexus-mail-sender</td>
-            <td>Mail sender with different providers (javamail, simple)</td>
-          </tr>
-          <tr>
-            <td>plexus-cache</td>
-            <td>Cache API with different providers (oscache, whirlycache, hashmap)</td>
-          </tr>
-          <tr>
-            <td>plexus-swizzle</td>
-            <td>A component adaptated from David Blevin's Swizzle project to generate reports from an issue tracking system (JIRA).</td>
-          </tr>
-        </table>
-      </subsection>
+    <section name="Available Plexus Components">
+
+      <p>
+        <b>This page is out of date and is kept only so existing links to it keep working.</b>
+      </p>
+
+      <p>
+        The current list of Plexus libraries and components, with links to their sites, is on the
+        <a href="../index.html">overview page</a>.
+      </p>
+
+      <p>
+        The list that used to be here described the components as they stood when Plexus was still an
+        IoC container. Most of what it advertised no longer exists in any form — <code>plexus-cli</code>,
+        <code>plexus-spring</code>, <code>plexus-contextualizer</code>, <code>plexus-xwork-integration</code>,
+        <code>plexus-mail-sender</code>, <code>plexus-cache</code> and <code>plexus-swizzle</code> are all
+        gone or archived — and it listed none of the components that are actually maintained today.
+        Rather than leave that standing, the content has been removed and the overview page is now the
+        single index.
+      </p>
+
     </section>
   </body>
 </document>
