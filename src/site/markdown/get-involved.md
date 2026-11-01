@@ -42,7 +42,7 @@ Each project on the [overview page](./index.html) links to its own repository. I
 
 Formatting is enforced by the build, via [Spotless](https://github.com/diffplug/spotless) and [palantir-java-format](https://github.com/palantir/palantir-java-format). Don't hand-format, and don't reformat code you aren't otherwise touching. Before pushing: 
 
-```unknown
+```bash
 mvn spotless:apply
 ```
 
