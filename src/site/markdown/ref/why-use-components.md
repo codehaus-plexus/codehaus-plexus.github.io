@@ -78,7 +78,7 @@ While components can usually be tested by conventional means, Plexus comes with 
 
 Clear separation of components, along with well-defined interfaces, allow replacing components with other implementations. This can facilitate advanced application architectures without code modifications.
 
-An example of this can be seen in Apache Geronimo's GBuild, which is built on [ Apache Continuum](http://continuum.apache.org/), a Plexus application. By replacing some components with identical functionality that works with ActiveMQ, a distributed countinuous integration server was built.
+An example of this can be seen in Apache Geronimo's GBuild, which is built on [ Apache Continuum](https://continuum.apache.org/), a Plexus application. By replacing some components with identical functionality that works with ActiveMQ, a distributed countinuous integration server was built.
 
 Additionally, the container can provide features that can be applied to all components consistently without code modifications. For example, Plexus can resolve components transparently at runtime from a Maven repository.
 
@@ -88,7 +88,7 @@ Additionally, the container can provide features that can be applied to all comp
 
 Other projects have also offered what a component may be:
 
-- [ PicoContainer](http://picocontainer.codehaus.org/Inversion\+of\+Control)
+- [ PicoContainer](http://picocontainer.com/)
 
 - [ Avalon](http://avalon.apache.org/central/cop/index.html)
 

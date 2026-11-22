@@ -8,7 +8,7 @@ date: 2006-06-17
 
 # Overview
 
-Plexus personalities give you the capability to customize how your component lifecycle works. You can mix and match personalities within Plexus to meet your needs. There is the core Plexus personality for "Plexus Components" as well as personalities for [Avalon](http://avalon.apache.org) and [PicoContainer](http://picocontainer.codehaus.org)
+Plexus personalities give you the capability to customize how your component lifecycle works. You can mix and match personalities within Plexus to meet your needs. There is the core Plexus personality for "Plexus Components" as well as personalities for [Avalon](http://avalon.apache.org) and [PicoContainer](http://picocontainer.com/)
 
 Which personality you should use depends on your needs. If you are just starting, you will most likely want to use the Plexus personality. However, each personality has it's own pros and cons.
 

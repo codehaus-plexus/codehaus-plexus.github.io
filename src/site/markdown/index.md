@@ -16,7 +16,7 @@ Each project has its own site, linked below, with Javadoc and reports. Sources a
 
 Plexus originally had two halves: an IoC container, and a set of components written for it. **The container is retired.** Maven moved to [Eclipse Sisu](https://www.eclipse.org/sisu/) and [JSR-330](https://jcp.org/en/jsr/detail?id\=330) years ago, and nothing listed below needs a Plexus container to run -- the components are ordinary JSR-330 beans.
 
-What remains, and what this project is now, is the second half: the libraries below. The container documentation is still on this site, under _Old IoC Documentation_, because a great deal of writing from that era links to it. See [Feature Comparison](./ref/feature-comparison.html) for how Plexus related to other IoC ecosystems of the time.
+What remains, and what this project is now, is the second half: the libraries below. The container documentation is still on this site, under _Plexus Container (retired)_, because a great deal of writing from that era links to it. Pages that taught the container now point to replacements; start with [Migrating from the Plexus container](./guides/migrating-from-plexus-container.html). See [Feature Comparison](./ref/feature-comparison.html) for how Plexus related to other IoC ecosystems of the time.
 
 # Libraries
 
@@ -62,7 +62,7 @@ What remains, and what this project is now, is the second half: the libraries be
 
 These are archived and receive no fixes, including security fixes. Don't start anything new on them.
 
-- [plexus-containers](./plexus-containers/) -- use [Eclipse Sisu](https://www.eclipse.org/sisu/) with JSR-330 annotations.
+- [plexus-containers](./plexus-containers/) -- use [Eclipse Sisu](https://www.eclipse.org/sisu/) with JSR-330 annotations; see [Migrating from the Plexus container](./guides/migrating-from-plexus-container.html).
 
 - [plexus-cipher](https://github.com/codehaus-plexus/plexus-cipher) -- absorbed into [plexus-sec-dispatcher](./plexus-sec-dispatcher/) 4.x.
 

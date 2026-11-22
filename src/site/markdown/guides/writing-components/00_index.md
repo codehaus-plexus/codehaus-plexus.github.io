@@ -4,11 +4,11 @@ author: Rahul Thakur
 date: 2006-06-08
 ---
 
-`The contents of this document are a work in progress`
+
 
 # About this trail
 
-This trail shows how to get started with Plexus Component development. It starts off with a simple Plexus component and gradually evolves it to show different ways a component can be used.
+This trail taught writing Plexus components for the retired Plexus container. The chapters below are kept at their addresses, but each is now a short note that points to the replacement. To move a component to JSR-330 and Eclipse Sisu, start with the [migration guide](/guides/migrating-from-plexus-container.html).
 
 - [Prepping project: Website Monitor component](./01_preparing_for_project.html)
 

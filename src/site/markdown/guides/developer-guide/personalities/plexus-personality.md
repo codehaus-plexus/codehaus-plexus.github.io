@@ -39,7 +39,7 @@ Plexus has the ability to do automatic dependency injection. When your component
 
 ### Configuration
 
-The Plexus personality can configure your component two ways. In the auto configuration mode, it matches the xml to fields and classes on your components using [XStream](http://xstream.codehaus.org). For example, if you have a String field named "cheese" on your component, then this would automatically set that field to "swiss".
+The Plexus personality can configure your component two ways. In the auto configuration mode, it matches the xml to fields and classes on your components using [XStream](https://x-stream.github.io/). For example, if you have a String field named "cheese" on your component, then this would automatically set that field to "swiss".
 
 ```
 <configuration>

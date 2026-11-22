@@ -4,28 +4,6 @@ title: Plexus
 
 # **This is an old piece of documentation, yet to be integrated into the new site and removed**
 
-# ...
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page showed a component that implements `Initializable`.
 
-1. You must create your component implementation.
-
-```
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
-
-public class DefaultCheeseComponent
-    implements Initializable, CheeseComponent
-{
-    private String cheese;
-
-    public void initialize() throws Exception
-    {
-        cheese = "cheese!";
-    }
-
-    public String cheese()
-    {
-        return cheese;
-    }
-}
-```
-
-Notice that we implement `Intializable`. This is part of the [Component Lifecycle](./plexus-lifecycle.html). When plexus automatically instantiates your component it will automatically `intiailize()` it as well.
+For the replacement, see [Lifecycle](/guides/migrating-from-plexus-container.html#Lifecycle) and [Sisu lifecycle support](https://eclipse.dev/sisu/org.eclipse.sisu.inject/lifecycle.html).

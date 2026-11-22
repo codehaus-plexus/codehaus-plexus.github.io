@@ -4,45 +4,12 @@ author: Rahul Thakur
 date: 2006-06-11
 ---
 
-`The contents of this document are a work in progress`
-
 # Control those 'evil' System.out's!
 
-We tweak our component implementation a bit to allow more control over messages being logged the console. To to this we update DefaultWebsiteMonitor to extend from org.codehaus.plexus.logging.AbstractLogEnabled. System.outs are then replaced by call to getLogger() to obtain the org.codehaus.plexus.logging.Logger instance setup by the container for us. The resulting code looks like this:
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page replaced the container logger with a custom `LoggerManager`.
 
-```
-public class DefaultWebsiteMonitor extends AbstractLogEnabled implements WebsiteMonitor {
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.codehaus.plexus.tutorial.WebsiteMonitor#monitor(java.lang.String)
-     */
-    public void monitor(String website) throws Exception {
-        HttpClient client = new HttpClient ();
-        HttpMethod getMethod = new GetMethod (website);
-        getMethod.setFollowRedirects (false);
-
-        try {
-            int statusCode = client.executeMethod (getMethod);
-
-            if (statusCode < HttpStatus.SC_OK || statusCode >= HttpStatus.SC_MULTIPLE_CHOICES) {
-                if (getLogger ().isErrorEnabled ())
-                    getLogger ().error ("HTTP request returned HTTP status code: " + statusCode);
-                throw new Exception ("HTTP request returned HTTP status code: " + statusCode);
-            }
-            if (getLogger ().isInfoEnabled ())
-                getLogger ().info ("HTTP request returned HTTP status code: " + statusCode);
-        } catch (UnknownHostException e) {
-            if (getLogger ().isErrorEnabled ())
-                getLogger ().error ("Specified host '" + website + "' could not be resolved.");
-            throw e;
-        }
-    }
-
-}
-```
+Replaced by [Logging](/guides/migrating-from-plexus-container.html#Logging).
 
 # Plugging in our custom Logging implementation
 
-An example of plugging in a custom logging implementation is demonstrated [ here](./05_01_custom_logging_implementation.html).
+Replaced by [Logging](/guides/migrating-from-plexus-container.html#Logging).

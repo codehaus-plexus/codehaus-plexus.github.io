@@ -22,4 +22,4 @@ Similar to above, but more serious. This causes the new component API to be load
 
 ## Maven Jetty Plugin
 
-The Maven Jetty Plugin seems to be failing with webapps that use the plexus container in some instances. In former versions of plexus-xwork-integration, the container was forced to ignore plexus.xml from Maven using a classloader. Using the new version this appears not to work (though I suspect it would work if Maven was using the new container too - ie, trunk). More investigation needed. See [ JETTY-62](http://jira.codehaus.org/browse/JETTY-62) for the original problem that is reoccurring.
+The Maven Jetty Plugin seems to be failing with webapps that use the plexus container in some instances. In former versions of plexus-xwork-integration, the container was forced to ignore plexus.xml from Maven using a classloader. Using the new version this appears not to work (though I suspect it would work if Maven was using the new container too - ie, trunk). More investigation needed. See JETTY-62 for the original problem that is reoccurring.
