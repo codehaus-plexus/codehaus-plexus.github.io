@@ -6,6 +6,8 @@ date: 2006-06-16
 
 # Documentation Trails
 
+The Plexus container is retired. The trails below are kept because other sites link to them; the [migration guide](/guides/migrating-from-plexus-container.html) describes what replaced the container.
+
 The Plexus documentation is organised into trails, depending on how you intend to use it.
 
 ## Component-oriented Programming Trail

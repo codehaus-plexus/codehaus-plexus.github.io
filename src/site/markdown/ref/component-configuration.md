@@ -2,68 +2,14 @@
 title: Component Configuration
 ---
 
-`The contents of this document are a work in progress`
-
 # Component Configuration
+
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page described the component profile and the `components.xml` descriptor.
 
 ## Overview
 
-For each component plexus creates a component profile. The profiles keeps track of the following things for each component:
-
-- [Component_Factory](#Component_Factory)
-
-- [Lifecycle_Handler](#Lifecycle_Handler)
-
-- [Component_Composer](#Component_Composer)
-
-- [Instantiation_Strategy](#Instantiation_Strategy)
-
-- The configuration for the component
+Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection) and [converting Plexus components to JSR-330](https://eclipse.dev/sisu/org.eclipse.sisu.plexus/conversion-to-jsr330.html) in the Sisu documentation.
 
 ## Component Descriptor
 
-Let's take a look at the component descriptor. It starts off with a block for the component:
-
-```
-<component>
-```
-
-You can then declare the role and the role hint of the component. The role and the hint are what you use to look up your component from plexus. The hint is optional. The hint is just an extra id that allows you to differentiate components of the same type.
-
-```
-<role>org.codehaus.plexus.Component</role>
-<role-hint>component1</role-hint>
-```
-
-The implementation attribute tells plexus what you want to use to implement the specified role:
-
-```
-<implementation>org.codehaus.plexus.DefaultComponent</implementation>
-```
-
-You can specify how your class should be created via the component factory. The default is java. But, there are additional \[Component Factories\] as well for groovy, bsh, and jpython.
-
-```
-<component-factory>org.codehaus.plexus.DefaultComponent</component-factory>
-```
-
-If you want to use a personality that is not the default personality, you can specify a lifecycle handler. You will need this when you are mixing and matching component personalities.
-
-```
-<lifecycle-handler>avalon</lifecycle-handler>
-```
-
-Then, there is the instantiation strategy. This controls how often plexus creates your components. There are the following options:
-
-|**Strategy**|**Description**||
-|---|---|---|
-|per-lookup|Every time you lookup a component one will be created.||
-|singleton|Only one instance of your component will ever be created.||
-|keep-alive|This ensures a component is only used as a singleton, and is only shutdown when the container shuts down.||
-|poolable|Pools several component instances.||
-
-The default is singleton and you can change the strategy like this:
-
-```
-<instantiation-strategy>per-lookup</instantiation-strategy>
-```
+Replaced by [Component index](/guides/migrating-from-plexus-container.html#Component_index).

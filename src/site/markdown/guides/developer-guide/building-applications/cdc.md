@@ -6,114 +6,18 @@ author:
 date: 2006-07-09
 ---
 
-`The contents of this document are a work in progress`
-
 # Plexus Component Descriptor Creator
 
-**NOTE: This document and the CDC itself is currently a work in progress.**
-
-The Component Descriptor Creator (or CDC for short) is a tool that will create the `components.xml` file from your Java code. It uses JavaDoc tags to gather the information it needs to create the component descriptor.
-
-There is a tag for marking components, requirements and configuration. Each of the tags can have parameters as documented below.
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page described the Javadoc tags that generated `components.xml`.
 
 ## Component Tag Parameters
 
-|**Tag**|**Required**|**Description**|
-|---|---|---|
-|role|y|The role of the component.|
-|role-hint|n|The role-hint of the component.|
-|version|n|The component version.|
-|lifecycle-handler|n|The lifecycle handler of the component. _TODO: link to the different lifecycle handlers_|
-|instantiation-strategy|n|The instantiation strategy of the component. _TODO: link to the different instantiation strategies_|
-
-<!--  TODO: This line will be incorrectly render the *name* of the table as well -->
-<!--        as the caption -->
-<!--  [plexus-component-tags] Plexus Component Tag Parameters -->
-
-```
-package org.foo;
-
-/**
- * @plexus.component
- *   role="com.foo.ActionManager"
- *   lifecycle-handler="plexus-configurable"
- */
-public class DefaultActionManager
-    extends AbstractLogEnabled
-    implements ActionManager, Serviceable
-{
-```
-
-<!--  [example-class-tags] Example Component Tag -->
-This will be generated in component.xml:
-
-```
-<component>
-  <role>org.foo.ActionManager</role>
-  <implementation>org.foo.DefaultActionManager</implementation>
-  <lifecycle-handler>plexus-configurable</lifecycle-handler>
-</component>
-```
+Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection) and [Component index](/guides/migrating-from-plexus-container.html#Component_index).
 
 ## Requirement Tag Parameters
 
-These tags are used on fields to state requirements. TODO: it should be possible to override the role for a normal field.
-
-|**Tag**|**Required**|**Description**|
-|---|---|---|
-|role|y/n|The role of the component. Only required if the field is a List or Map|
-|role-hint|n|The role-hint of the component.|
-
-```
-/**
- * @plexus.requirement
- *  role-hint="foo"
- */
-private ActionManager actionManager;
-```
-
-<!--  [example-requirement-tags] Example Requirement Tag -->
-This will be generated in component.xml:
-
-```
-<component>
-  <role>org.foo.MyComponent</role>
-  <implementation>org.foo.MyComponentImplementation</implementation>
-  <requirements>
-    <requirement>
-      <role>org.foo.ActionManager</role>
-      <role-hint>foo</role-hint>
-      <field-name>actionManager</field-name>
-    </requirement>
-  </requirements>
-</component>
-```
+Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection).
 
 ## Configuration Tag Parameters
 
-Note that the default value tag won't be required in the future when these tags will be used to generate a separate configuration declaration section.
-
-|**Tag**|**Required**|**Description**|
-|---|---|---|
-|default-value|y|Sets the default value for the configuration field|
-
-```
-/**
- * @plexus.configuration
- *  default-value="Trygve"
- */
-private String name;
-```
-
-<!--  [example-requirement-tags] Example Configuration Tag -->
-This will be generated in component.xml:
-
-```
-<component>
-  <role>org.foo.MyComponent</role>
-  <implementation>org.foo.MyComponentImplementation</implementation>
-  <configuration>
-    <name>Trygve</name>
-  </configuration>
-</component>
-```
+Replaced by [Configuration](/guides/migrating-from-plexus-container.html#Configuration).

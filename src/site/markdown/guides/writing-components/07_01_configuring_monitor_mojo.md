@@ -4,73 +4,8 @@ author: Rahul Thakur
 date: 2006-06-27
 ---
 
-`The contents of this document are a work in progress`
-
 # Adding Configuration for the Monitor Mojo
 
-## Configuring a 'short-hand' to invoke Monitor Mojo
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page configured a Mojo that used a Plexus component.
 
-By default Maven expects all Maven plugin artifacts:
-
-1. to belong to the group `org.apache.maven.plugins`
-
-1. to have the artifactId follow pattern `maven-xxxx-plugin`, where `xxxx` can serve as a short-hand prefix to invoke a Mojo from a Maven plugin.
-
-For our case we need to let Maven know that our plugin's `groupId` and `artifactId` are different from what Maven expects by default.
-
-So we define for our Maven plugin a **plugin prefix** via our plugin's pom.xml.
-
-To do this, we add the following to our pom.xml under the `<project`\> element.
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<project>
-  .
-  .
-  .
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <configuration>
-          <goalPrefix>website</goalPrefix>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-</project>  
-
-```
-
-This tells Maven to use **website** as a plugin prefix or a 'short-hand' to allow invoking available Mojo(s) from our plugin.
-
-1. Next we add the `groupId` of our Maven plugin in Maven settings file. This is available under `~/.m2/settings.xml`.
-
-1. Edit it and add the following:
-
-```
-<settings>
-  .
-  .
-  .
-  <pluginGroups>
-    <pluginGroup>org.codehaus.plexus</pluginGroup>
-  </pluginGroups>
-</settings>
-```
-
-This should allow our Mojo to be invoked from the command prompt without have the need to type fully qualified reference to MonitorMojo (org.codehaus.plexus:plexus-website-monitor-plugin:monitor), and by simply typing:
-
-```
- mvn website:monitor
-```
-
-A more definitive reference on plugin prefix resolution is available [here](http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html) on the Maven website.
-
-## Configuring list of websites
-
-<!-- Now we see how to set up a configuration for the MonitorMojo and use it to  -->
-<!-- convey to the website monitor component the list of websites to monitor. -->
-We will come back to configuring the MonitorMojo but before we do that we'll look at setting up unit tests for it.
-
-[Next: Setting up Mojo unit tests](./07_01_setting_up_mojo_unit_tests.html)
+For the replacement, see [Configuration](/guides/migrating-from-plexus-container.html#Configuration) and [Guide to Configuring Plugins](https://maven.apache.org/guides/mini/guide-configuring-plugins.html).

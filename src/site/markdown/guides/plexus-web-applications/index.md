@@ -4,10 +4,10 @@ author: Rahul Thakur
 date: 2006-07-07
 ---
 
-`The contents of this document are a work in progress`
+
 
 # About this trail
 
-This trail demonstrates how Plexus can be used in Web applications.
+This trail showed how to use the retired Plexus container in web applications. The chapter below is kept at its address as a short note. See the [migration guide](/guides/migrating-from-plexus-container.html) for what replaced it.
 
 - [Setting up a Web Project](./01_preparing_for_project.html)

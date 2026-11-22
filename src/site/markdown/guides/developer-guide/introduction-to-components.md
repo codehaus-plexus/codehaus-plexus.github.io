@@ -12,7 +12,7 @@ date: 2006-06-17
 
 Other projects have also offered what a component may be:
 
-- [ PicoContainer](http://picocontainer.codehaus.org/Components)
+- [ PicoContainer](http://picocontainer.com/)
 
 - [ Avalon](http://avalon.apache.org/central/cop/index.html)
 

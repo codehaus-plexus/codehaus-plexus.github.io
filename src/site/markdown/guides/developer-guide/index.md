@@ -6,9 +6,11 @@ author:
 date: 2006-06-17
 ---
 
-`The contents of this document are a work in progress`
+
 
 # Table of Contents
+
+This guide documented the retired Plexus container. Pages that taught the container now point to the replacement, and the conceptual pages are kept as written. To move to JSR-330 and Eclipse Sisu, see the [migration guide](/guides/migrating-from-plexus-container.html).
 
 - [Introduction to Plexus](./introduction.html)
 

@@ -4,146 +4,22 @@ author: Brett Porter
 date: 2006-05-26
 ---
 
-`The contents of this document are a work in progress`
-
 # Five Minute Tutorial
 
-In this tutorial, you will create a simple component, and use the Plexus to start a container.
-
-**Note:** If you are using Maven 2, you can obtain the full sample code, and then build and run it using the following commands:
-
-```
-mvn archetype:create \
-    -DarchetypeVersion=1.0-SNAPSHOT\
-    -DarchetypeGroupId=org.codehaus.plexus.examples -DarchetypeArtifactId=plexus-examples-tutorial \
-    -DartifactId=tutorial -DgroupId=test -DremoteRepositories=http://snapshots.repository.codehaus.org/ 
-cd tutorial
-mvn package exec:java
-```
-
-<!-- TODO: this is not done -->
-## Creating a Component Interface
-
-The first task to creating a component is to define its _role_. In Java, this usually takes the form of defining an interface with the functionality the component will expose.
-
-**Note:** Plexus does not strictly require you use an interface to define the role, however it is strongly recommended to help improve your application design.
-
-```
-package org.codehaus.plexus.examples.tutorial;
-
-public interface Cheese
-{
-    /** The Plexus role identifier. */
-    String ROLE = Cheese.class.getName();
-
-    /**
-     * Slices the cheese for apportioning onto crackers.
-     * @param slices the number of slices
-     */
-    void slice( int slices );
-
-    /**
-     * Get the description of the aroma of the cheese.
-     * @return the aroma
-     */
-    String getAroma();
-}
-```
-
-The interface declares the `String` identifier for the role in the `ROLE` field. The name and value of this field are simply a convention, and could possibly be any other value, as long as they are unique within the container. Using the package and class name guarantees this.
-
-<!-- TODO: Plexus should have syntactic sugar that uses Cheese.class instead -->
-The other methods in the interface declare the functionality of the component: an ability to slice the cheese into a given number of slices, and method to retrieve a description of the cheese's aroma.
+The Plexus container is retired and archived, so this page no longer carries the instructions it once had. It stays at this address because other sites link to it. The original page built a small component, described it in `components.xml` and looked it up from a `DefaultPlexusContainer`.
 
 ## Creating a Component Implementation
 
-Once an interface is declared, you need to create one or more implementations of the functionality declared by it.
-
-```
-package org.codehaus.plexus.examples.tutorial;
-
-public class ParmesanCheese
-    implements Cheese
-{
-    public void slice( int slices )
-    {
-        throw new UnsupportedOperationException( "No can do" );
-    }
-
-    public String getAroma()
-    {
-        return "strong";
-    }
-}
-```
-
-The implementation of the `Cheese` interface above, `ParmesanCheese` provides the functionality for both the `slice()` and `getAroma()` methods, making the component complete.
+Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection) and [converting Plexus components to JSR-330](https://eclipse.dev/sisu/org.eclipse.sisu.plexus/conversion-to-jsr330.html) in the Sisu documentation.
 
 ## Creating a Component Descriptor
 
-The final step is to create a component descriptor file, located in `META-INF/plexus/components.xml` inside the JAR or classloader that houses the component.
-
-```
-<component-set>
-  <components>
-    <component>
-      <role>org.codehaus.plexus.examples.tutorial.Cheese</role>
-      <role-hint>parmesan</role-hint>
-      <implementation>org.codehaus.plexus.examples.tutorial.ParmesanCheese</implementation>
-    </component>
-  </components>
-</component-set>
-```
-
-As you can see, the descriptor contains the single component, with the role declared earlier of `Cheese`. The descriptor specifies what implementation is used for a given _role hint_. The hint is a mandatory field that differentiates implementations of a given component, and is used when later referencing the component.
-
-**Note:** It is not necessary to create this descriptor, as the [ Component Descriptor Creator](./component-descriptor-creator.html) can do it for you based on the Java class definition and some additional Javadoc annotations.
+Replaced by [Component index](/guides/migrating-from-plexus-container.html#Component_index) and [Maven and JSR-330](https://maven.apache.org/maven-jsr330.html).
 
 ## Executing the Plexus Application
 
-The final step is to execute the application that uses this component. In this example, you will use an container from a standard Java class with a `main()` method.
-
-### Creating the container
-
-Creating the container is very simple:
-
-```
-import org.codehaus.plexus.PlexusContainer;
-import org.codehaus.plexus.PlexusContainerException;
-
-public class App
-{
-    public static void main(String args[]) throws Exception
-    {
-        PlexusContainer container= new DefaultPlexusContainer();
-        ...    
-        container.dispose();
-    }
-}
-```
-
-That's all there is to it: create the container, and start it. Defaults and the current classloader will be used, however if you need a more advanced embedder container configuration, see [ Using the embedder](./embedder.html).
-
-### Retrieving the Component
-
-To retrieve the `Cheese` component from the container and execute it's `getAroma()` method, add the following lines after those that start the container:
-
-```
-    Cheese cheese = (Cheese) container.lookup( Cheese.ROLE, "parmesan" );
-    System.out.println( "Parmesan is " + cheese.getAroma() );
-```
-
-That's all there is to getting started with Plexus. Congratulations!
-
-If you are not familiar with component-oriented programming, you may be wondering why you wouldn't just do this:
-
-```
-    Cheese cheese = new ParmesanCheese();
-    System.out.println( "Parmesan is " + cheese.getAroma() );
-```
-
-For answers to this question and more, see [ Why Use Components?](/ref/why-use-components.html)
+Replaced by [Looking up components](/guides/migrating-from-plexus-container.html#Looking_up_components).
 
 ## Learning More
 
-To learn more about writing components, take the [ Component Tutorial](/guides/writing-components/00_index.html).
+Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection) and [Eclipse Sisu](https://eclipse.dev/sisu/).
