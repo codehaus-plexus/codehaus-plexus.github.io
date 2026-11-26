@@ -14,4 +14,10 @@ Replaced by [Testing components](/guides/migrating-from-plexus-container.html#Te
 
 ## Container Driven Testing
 
+### Implementation:
+
+### Tests:
+
+### Test Code:
+
 Replaced by [Testing components](/guides/migrating-from-plexus-container.html#Testing_components) and [Plexus Testing](https://codehaus-plexus.github.io/plexus-testing/).

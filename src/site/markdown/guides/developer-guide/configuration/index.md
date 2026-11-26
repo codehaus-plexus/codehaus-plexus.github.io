@@ -10,6 +10,8 @@ The Plexus container is retired and archived, so this page no longer carries the
 
 # Configuration files
 
+## Plexus is using the following configuration files
+
 See the [migration guide](/guides/migrating-from-plexus-container.html).
 
 ## Component configuration through `/META-INF/plexus/components.xml`
