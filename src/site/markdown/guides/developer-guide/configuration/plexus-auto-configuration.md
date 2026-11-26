@@ -10,4 +10,12 @@ The Plexus container is retired and archived, so this page no longer carries the
 
 ## Auto configuration is ...
 
+### Types Supported by Autoconfiguration
+
+#### Basic
+
+#### Composite types (Object properties)
+
+#### Advanced mapping
+
 Replaced by [Configuration](/guides/migrating-from-plexus-container.html#Configuration).

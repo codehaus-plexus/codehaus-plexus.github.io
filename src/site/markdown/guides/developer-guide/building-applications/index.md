@@ -16,13 +16,27 @@ See the [migration guide](/guides/migrating-from-plexus-container.html).
 
 # Creating a Simple Plexus Component
 
+## Making the Component Stub
+
+## Building the Plexus Component
+
 Replaced by [Components and injection](/guides/migrating-from-plexus-container.html#Components_and_injection) and [Component index](/guides/migrating-from-plexus-container.html#Component_index).
 
 # Creating a Simple Plexus Application
 
+## Making the Application Stub
+
+## Adding the Plexus Component dependency
+
+## Building the Plexus Application
+
 Replaced by [Looking up components](/guides/migrating-from-plexus-container.html#Looking_up_components).
 
 # Creating the Runtime
+
+## Making the Runtime Stub
+
+## Building the Runtime
 
 Replaced by [Parts without a replacement](/guides/migrating-from-plexus-container.html#Parts_without_a_replacement).
 

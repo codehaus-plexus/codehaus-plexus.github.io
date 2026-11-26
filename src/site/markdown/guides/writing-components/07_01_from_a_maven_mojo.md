@@ -10,4 +10,10 @@ The Plexus container is retired and archived, so this page no longer carries the
 
 ## Setting up a Maven Plugin Project
 
+### Creating a Maven plugin Project using an archetype
+
+### Updating pom.xml dependencies
+
+### Setting up an Eclipse project
+
 Replaced by [Parts without a replacement](/guides/migrating-from-plexus-container.html#Parts_without_a_replacement) and [Guide to Developing Java Plugins](https://maven.apache.org/guides/plugin/guide-java-plugin-development.html).
